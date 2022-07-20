@@ -1,0 +1,20 @@
+.Article {
+    .PageContentWrapper {
+        margin: 100px auto;
+        width: 800px;
+        .PageTitle {
+            height: 54px;
+            width: 100%;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 600;
+        }
+        .description {
+            font-size: 16px;
+        }
+    }
+}

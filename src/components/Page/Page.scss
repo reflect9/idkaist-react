@@ -1,0 +1,154 @@
+.PageHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 68px;
+    background: #fff;
+    color: #222;
+    border-bottom:1px solid #f4f4f4;
+    box-shadow: 0 0px 18px 0px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: row;
+    img {
+        display: inline-block;
+        height: 32px;
+        margin-top: 8px;
+        // -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        // filter: grayscale(100%);
+    }
+
+    .HeaderCenter {
+        flex: 1 0 auto;
+        display: flex;
+        flex-direction: row;
+        padding-top: 4px;
+        padding-left: 80px;
+        justify-content: center;
+        align-items: center;
+        .sectionLink {
+            display: inline-block;
+            box-sizing: border-box;
+            @media (min-width: 750px) {
+                font-size: 16px;
+                margin: 0 40px;
+            }
+            @media (max-width: 750px) {
+                font-size: 12px;
+                margin: 0 13px;
+            }
+            font-weight: 700;
+            color: #aaa;
+            a {
+                text-decoration: none;
+            }
+            a:visited {
+                text-decoration: none;
+                color: inherit;
+            }
+            a:hover {
+                color: #333;
+            }
+            a::after {
+                content: "";
+                display: block;
+                width: 0;
+                height: 4px;
+                border-radius: 2px;
+                background: #333;
+                transition: width 0.3s;
+            }
+
+            a:hover::after {
+                width: 100%;
+                //transition: width .3s;
+            }
+        }
+        .sectionLink.active {
+            color: #333;
+        }
+        form {
+            color: inherit;
+            background: #eaeaea;
+            display: flex;
+            padding: 4px 12px;
+            width: 190px;
+            height: 24px;
+            border: 1px solid inherit;
+            border-radius: 24px;
+            // box-shadow:0 0 4px 0 rgba(255,255,255,0.2);
+            input[type="search"] {
+                border: none;
+                background: transparent;
+                margin: 0;
+                padding: 7px 8px;
+                font-size: 14px;
+                color: inherit;
+                border: 1px solid transparent;
+                border-radius: inherit;
+            }
+            input[type="search"]::placeholder {
+                color: inherit;
+            }
+            button[type="submit"] {
+                background: none;
+                border: none;
+                font-size: 20px;
+                color: inherit;
+                opacity: 0.7;
+            }
+            input:focus {
+                outline: none;
+            }
+            // button[type="submit"] {
+            //     text-indent: -999px;
+            //     overflow: hidden;
+            //     width: 40px;
+            //     padding: 0;
+            //     margin: 0;
+            //     border: 1px solid transparent;
+            //     border-radius: inherit;
+            //     background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+            //     cursor: pointer;
+            //     opacity: 0.7;
+            //   }
+
+            button[type="submit"]:hover {
+                opacity: 1;
+            }
+        }
+        .filterButton {
+            margin-left: 16px;
+            font-size: 24px;
+            color: inherit;
+        }
+    }
+    .HeaderRight {
+        flex: 0 0 auto;
+        font-size: 24px;
+        padding: 0 15px;
+        svg {
+            color: inherit;
+            margin: 23px 0 15px 15px;
+        }
+        .LanguageSelector {
+            display: inline-block;
+            vertical-align: top;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 25px 0 15px 15px;
+            span.active {
+                color: #555;
+            }
+            span {
+                display: inline-block;
+                cursor: pointer;
+                color: #dadada;
+                margin-right: 4px;
+                width: 20px;
+                text-align: center;
+            }
+        }
+    }
+}

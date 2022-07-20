@@ -1,0 +1,65 @@
+
+.Menu {
+    position:fixed;
+    top:0; left:0; bottom:0;
+    height:100%;
+    z-index:101;
+    .MenuOpenButton {
+        position:absolute;
+        top:16px; left:21px;
+        width:32px; height:32px;
+        font-size:24px;
+        svg {
+            height:32px;
+        }
+    }
+    .MenuCloseButton {
+        font-size:24px;
+        margin:16px 0 0 21px;
+        svg {
+            height:32px;
+        }
+    }
+    .LanguageSelector {
+        position:absolute;
+        top:16px; right:16px;
+        font-size:16px;
+        span.active {
+            color:#dadada;
+        }
+        span {
+            cursor:pointer;
+            color:#555;
+        }
+    }
+    .backdrop {
+        position:fixed;
+        top:0; right:0; bottom:0; left:0;
+        background:rgba(0,0,0,0.3);
+    }
+}
+
+$sidebar-bg-color: #000 !default;
+$sidebar-color: #adadad !default;
+$sidebar-height: 100% !default;
+$sidebar-width: 220px !default;
+$sidebar-collapsed-width: 0px !default;
+$highlight-color: #d8d8d8 !default;
+$submenu-bg-color: #000 !default;
+$submenu-bg-color-collapsed: #2b2b2b !default;
+$icon-bg-color: #2b2b2b !default;
+$icon-size: 35px !default;
+$submenu-indent: 28px !default;
+$breakpoint-xs: 480px !default;
+$breakpoint-sm: 576px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 992px !default;
+$breakpoint-xl: 1200px !default;
+$breakpoint-xxl: 1600px !default;
+
+@import '~react-pro-sidebar/dist/scss/styles.scss';
+
+.pro-inner-item {
+    padding:12px 35px 12px 20px !important;
+}
+

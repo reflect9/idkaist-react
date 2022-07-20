@@ -1,0 +1,57 @@
+{
+  "name": "idkaist-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "^6.4.3",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/hookrouter": "^2.2.5",
+    "hookrouter": "^1.2.5",
+    "i18next": "^21.6.10",
+    "i18next-browser-languagedetector": "^6.1.3",
+    "i18next-http-backend": "^1.3.2",
+    "lodash": "^4.17.21",
+    "node-fetch": "^3.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-i18next": "^11.15.3",
+    "react-icons": "^4.3.1",
+    "react-markdown": "^8.0.0",
+    "react-pro-sidebar": "^0.7.1",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "sass": "^1.48.0",
+    "unsplash-js": "^7.0.15",
+    "web-vitals": "^2.1.3"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "json-loader": "^0.5.7"
+  }
+}

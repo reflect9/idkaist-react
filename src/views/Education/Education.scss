@@ -1,0 +1,159 @@
+.Education {
+    h2 {
+        border-top: 1px solid #eee;
+        padding-top: 30px;
+        margin-top: 40px;
+    }
+    .PageContentWrapper {
+        margin: 100px auto;
+        width: 800px;
+        .PageTitle {
+            height: 54px;
+            width: 100%;
+            font-size: 32px;
+            font-weight: 800;
+            h2 {
+                border-top:1px solid #aaa;
+                padding-top:30px;
+                margin-top:40px;
+            }
+        }
+        .PageContent {
+            p {
+                font-size:15px;
+            }
+            .tabNav {
+                width: 100%;
+                margin-top: 20px;
+                border-bottom: 1px solid #eaeaea;
+                ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    li {
+                        display: inline-block;
+                        padding: 12px 0 12px 0;
+                        margin-right: 42px;
+                        a,
+                        button {
+                            border: none;
+                            background: none;
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #3a3a3a;
+                            text-decoration: none;
+                        }
+                    }
+                    li.active {
+                        a,
+                        button {
+                            border: none;
+                            background: none;
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #008489;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.EducationContent {
+    .section_summary {
+        font-weight:400;
+        font-size:0.9em;
+        color:#444;
+        margin: 20px 0 20px 0px;
+        line-height:1.6em;
+        .light {
+            color:#aaa;
+        }
+
+    }
+    div.year_title {
+        font-size:18px;
+        font-weight:400;
+        color:black;
+        margin-top:20px;
+        margin-bottom:8px;
+        em {
+            font-weight:600;
+            color:rgba(233,0,30);
+            font-style:normal;
+        }
+    }
+    div.year_description {
+        font-weight:400;
+        font-size:0.85em;
+        color:#444;
+        margin: 0 20px 10px 0px;
+        line-height:1.6em;
+        label {
+            display:block;
+            font-size:1.0em;
+            font-weight:600;
+            margin-top:16px; margin-bottom:4px;
+        }
+    }
+    table.courses {
+        text-align:left;
+        font-size:13px;
+        margin: 16px auto;
+        font-weight:400;
+        table-layout:fixed;
+        tbody {
+            th, td{ 
+                padding:12px;
+                vertical-align: top;
+            }
+            th {
+                background:#aaa;
+                color:white;
+                width:50px;
+                text-align:right;
+                cursor:context-menu;
+                text-transform: Uppercase;
+            }
+            td {
+                background:#eaeaea;
+                width:450px;
+                .course{
+                    display:block;
+                    margin:0 0 16px 0;
+                    cursor:context-menu;
+                    span.light {
+                        display:inline;
+                        margin-left:6px;
+                        color:#555;
+                    }
+                    span.req {
+                        margin-left:12px;
+                        text-transform: uppercase;
+                        font-size:0.8em;
+                        font-weight:800;
+                        color:red;
+                    }
+                    .description {
+                        font-size:0.9em;
+                        margin-top:4px;
+                        // display:none;
+                        color:#888;
+                    }
+                }
+                .course:last-of-type {
+                    margin-bottom:0;
+                }
+                .course.description_hidden{
+                    .description {
+                        display:none;
+                    }
+                }   
+            }
+            
+        }
+
+    }
+}

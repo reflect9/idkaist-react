@@ -1,0 +1,81 @@
+.Lab {
+    padding:0 30px 30px;
+    margin:0px auto;
+    max-width:1000px;
+    .LabBorder {
+        // border:1px solid #eee;
+        // border-radius:8px;    
+        padding:20px;
+    }
+    .title {
+        font-weight:600;
+        font-size:28px;
+        .prof_name {
+            color:#333;
+        }
+        a {
+            text-decoration: none;
+            color:inherit;
+        }
+        a:visited {
+            color:inherit;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .short {
+            margin-left:12px;
+            color:#aaa;
+            font-size:12px;
+        }
+    }
+    .description {
+        margin-top:12px;
+        font-size:14px;
+        color:#555;
+        line-height:1.6em;
+    }
+    .prof {
+        font-size:12px;
+        margin:12px 0;
+    }
+    .profAndProjects{
+        margin-top:20px;
+        display:flex;
+        flex-direction:row;
+        .profInfo{
+            position:relative;
+            flex:0 1 250px;
+            width:250px;
+            img {
+                width:100%; 
+                vertical-align: top;;
+            }
+            .profDescription{
+                margin-top:10px; 
+                text-align:left;
+                color:#333;
+            }
+        }
+        .projects{
+            flex:1 0 60%;
+            padding-left:10px;
+            height:100%;
+            ul {
+                display:block;
+                margin:0; padding:0;
+                width:100%;
+                li {
+                    display:inline-block;
+                    box-sizing: border-box;
+                    height:200px; width:200px;
+                    margin-right:10px; margin-bottom:10px;
+                    background:#eee;
+                    list-style-type: none;
+                    padding:10px;
+                }
+            }
+        }
+    }
+}

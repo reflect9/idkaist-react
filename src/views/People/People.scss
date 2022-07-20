@@ -1,0 +1,46 @@
+.People {
+    h2 {
+        padding-top: 30px;
+        margin-top: 40px;
+    }
+    .PageContentWrapper {
+        margin: 100px auto;
+        width: 800px;
+        .PageTitle {
+            height: 54px;
+            width: 100%;
+            font-size: 32px;
+            font-weight: 800;
+        }
+        .PageContent{
+            font-size:60px;
+        }
+    }
+    .person {
+        display:inline-block;
+        vertical-align: top;
+        width:200px; height:200px;
+        margin-bottom:32px;
+        font-size:15px;
+        .photo {
+            img {
+                width:100px; height:100px;
+                object-fit: cover;
+                filter:saturate(0);
+            }
+        }
+        .name {
+            font-size:14px;
+            font-weight:600;
+        }
+        .position {
+            margin:2px 0 0;
+            color:#833;
+            font-size:12px;
+        }
+        .contact {
+            font-size:12px;
+            color:#aaa;
+        }
+    }
+}

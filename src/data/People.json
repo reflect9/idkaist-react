@@ -1,0 +1,122 @@
+{
+    "jiwoohong": {
+        "name_kr":"홍지우",
+        "name_en":"Ji-Woo Hong",
+        "position":"Research Professor",
+        "role":"BK 21 Researcher",
+        "description_en": "Dr.Hong's research interest lies in exploring the design and technology for future entertainment and learning, particularly in new media for children, mixed reality technology, collaborative creativity, and games and play.",
+        "lab":"BK 21 FOUR",
+        "lab_url":"https://jiwoohong.com",
+        "email":"jwhong10@kaist.ac.kr",
+        "phone": "+82-42-350-4592",
+        "office":"N25 #401",
+        "thumbnail": "jwh.jpg"
+    },
+
+    "kyungwonchung": {
+        "name_kr":"정경원",
+        "name_en":"Kyung-Won Chung",
+        "position":"Emeritus Professor",
+        "role":"",
+        "description_en": "Prof. Chung focuses on maximizing the quality of design service and productivity by optimizing the role of design within business system. Moreover, understanding design as the strategic method of corporate competitiveness enhancement and studies the necessary knowledge and diverse methodologies for effective management of design organization and design process.",
+        "lab":"",
+        "lab_url":"",
+        "email":"kwchung@kaist.ac.kr",
+        "phone": "",
+        "office":"",
+        "thumbnail": "ckw.jpg"
+    },
+    "myungseokkim": {
+        "name_kr":"김명석",
+        "name_en":"Myung-Seok Kim",
+        "position":"Emeritus Professor",
+        "role":"",
+        "description_en": "Prof. Kim focuses on design research on environmental system that comprises pleasant human life, which surpasses single unit product design concept. The major research interests include environment system design, emotional design and robot design.",
+        "lab":"",
+        "lab_url":"",
+        "email":"mskim@kaist.ac.kr",
+        "phone": "",
+        "office":"",
+        "thumbnail": "kms.jpg"
+    },
+    "kunpyolee": {
+        "name_kr":"이건표",
+        "name_en":"Kun-Pyo Lee",
+        "position":"Emeritus Professor",
+        "role":"",
+        "description_en": "Prof. Lee focuses on planning and developing human-centered interaction through in-depth research for physical, cognitive, emotional, and socio-cultural aspects of human being.",
+        "lab":"",
+        "lab_url":"",
+        "email":"kplee@kaist.ac.kr",
+        "phone": "",
+        "office":"",
+        "thumbnail": "kpl.jpg"
+    },
+
+
+    "engnyuecho": {
+        "name_kr":"조앵녀",
+        "name_en":"Eng-Nyue Cho",
+        "position":"Administrative Staff",
+        "role":"",
+        "description_en": "",
+        "lab":"",
+        "lab_url":"",
+        "email":"e_chocho@kaist.ac.kr",
+        "phone": "+82-42-350-4502",
+        "office":"",
+        "thumbnail": "enc.jpg"
+    },
+    "seyikim": {
+        "name_kr":"김세이",
+        "name_en":"Se-Yi Kim",
+        "position":"Administrative Staff",
+        "role":"",
+        "description_en": "",
+        "lab":"",
+        "lab_url":"",
+        "email":"sesedolee@kaist.ac.kr",
+        "phone": "+82-42-350-4503",
+        "office":"",
+        "thumbnail": "syk.png"
+    },
+    "minachoi": {
+        "name_kr":"최미나",
+        "name_en":"Mina Choi",
+        "position":"BK Staff",
+        "role":"",
+        "description_en": "",
+        "lab":"",
+        "lab_url":"",
+        "email":"mi9323@kaist.ac.kr",
+        "phone": "+82-42-350-4596",
+        "office":"",
+        "thumbnail": "mnc.jpg"
+    },
+    "youngwonsuh": {
+        "name_kr":"서영원",
+        "name_en":"Youngwon Suh",
+        "position":"Administrative Staff",
+        "role":"",
+        "description_en": "",
+        "lab":"",
+        "lab_url":"",
+        "email":"hackdong01@kaist.ac.kr",
+        "phone": "+82-42-350-4588",
+        "office":"",
+        "thumbnail": "yws.jpeg"
+    },
+    "seungyongjeong": {
+        "name_kr":"정승용",
+        "name_en":"Seungyong Jeong",
+        "position":"Engineer",
+        "role":"",
+        "description_en": "",
+        "lab":"",
+        "lab_url":"",
+        "email":"syj94820@kaist.ac.kr",
+        "phone": "+82-42-350-4593",
+        "office":"",
+        "thumbnail": "syj.jpg"
+    }
+}

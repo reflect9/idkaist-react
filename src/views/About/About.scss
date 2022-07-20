@@ -1,0 +1,67 @@
+.About {
+    h2 {
+        padding-top: 30px;
+        margin-top: 40px;
+    }
+    .PageContentWrapper {
+        margin: 100px auto;
+        width: 800px;
+        .PageTitle {
+            height: 54px;
+            width: 100%;
+            font-size: 32px;
+            font-weight: 800;
+        }
+    }
+
+    .tabNav {
+        width: 100%;
+        margin-top: 40px;
+        border-bottom: 1px solid #eaeaea;
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            li {
+                display: inline-block;
+                padding: 12px 0 12px 0;
+                margin-right: 42px;
+                button {
+                    border: none;
+                    background: none;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #3a3a3a;
+                }
+            }
+            li.active {
+                button {
+                    border: none;
+                    background: none;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #008489;
+                }
+            }
+        }
+    }
+
+    .tabContent {
+        .mission {
+            img.shapethefuture {
+                width:100%;
+                margin-top:16px;
+            }
+            .slogan {
+                margin:20px;
+                text-align:left;
+                font-size:40px; font-weight:700;
+                .small {
+                    margin-top:10px;
+                    font-size:0.6em;
+                }
+            }
+        }
+
+    }
+}
