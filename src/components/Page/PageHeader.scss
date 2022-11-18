@@ -1,16 +1,28 @@
+.Wrapper {
+    background: #fff;
+    position:sticky;
+    top:0; z-index:9999;
+}
+
 .PageHeader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    height: 68px;
+    margin:auto;
+    max-width: 1200px;
+    height: 80px;
     background: #fff;
     color: #222;
-    border-bottom:1px solid #f4f4f4;
-    box-shadow: 0 0px 18px 0px rgba(0, 0, 0, 0.05);
     display: flex;
+    position:relative;
     flex-direction: row;
+    // border-bottom:1px dotted #eee;
+
+    // .KAIST_Logo {
+    //     position: absolute;
+    //     left:0;
+    //     top: 50%;
+    //     -ms-transform: translateY(-50%);
+    //     transform: translateY(-50%);
+    // }
+
     img {
         display: inline-block;
         height: 32px;
@@ -18,7 +30,18 @@
         // -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
         // filter: grayscale(100%);
     }
-
+    .HeaderLeft {
+        position:absolute;
+        top: 50%; left:0;
+        padding-left:40px;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        flex: 0 0 auto;
+        font-size: 24px;
+        svg {
+            height:48px;
+        }
+    }
     .HeaderCenter {
         flex: 1 0 auto;
         display: flex;
@@ -27,6 +50,7 @@
         padding-left: 80px;
         justify-content: center;
         align-items: center;
+        font-family: 'Work Sans', sans-serif;
         .sectionLink {
             display: inline-block;
             box-sizing: border-box;
@@ -38,9 +62,11 @@
                 font-size: 12px;
                 margin: 0 13px;
             }
-            font-weight: 700;
-            color: #aaa;
+            font-weight: 400;
+            font-size:18px;
+            color: #000;
             a {
+                color:inherit;
                 text-decoration: none;
             }
             a:visited {
@@ -125,30 +151,36 @@
         }
     }
     .HeaderRight {
+        position:absolute;
+        top: 50%; right:0;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
         flex: 0 0 auto;
         font-size: 24px;
-        padding: 0 15px;
-        svg {
-            color: inherit;
-            margin: 23px 0 15px 15px;
+        padding: 0 36px 0 8px;
+        .KAIST_Logo {
+            margin-right:20px;
+            height:24px;
+            filter: saturate(0%) contrast(0%);
+            opacity:0.8;
         }
-        .LanguageSelector {
-            display: inline-block;
-            vertical-align: top;
-            font-size: 16px;
-            font-weight: 600;
-            margin: 25px 0 15px 15px;
-            span.active {
-                color: #555;
-            }
-            span {
-                display: inline-block;
-                cursor: pointer;
-                color: #dadada;
-                margin-right: 4px;
-                width: 20px;
-                text-align: center;
-            }
-        }
+        // .LanguageSelector {
+        //     display: inline-block;
+        //     vertical-align: top;
+        //     font-size: 16px;
+        //     font-weight: 600;
+        //     margin: 25px 0 15px 15px;
+        //     span.active {
+        //         color: #555;
+        //     }
+        //     span {
+        //         display: inline-block;
+        //         cursor: pointer;
+        //         color: #dadada;
+        //         margin-right: 4px;
+        //         width: 20px;
+        //         text-align: center;
+        //     }
+        // }
     }
 }

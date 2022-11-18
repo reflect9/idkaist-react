@@ -17,6 +17,9 @@ import './i18n';  // For Language support
 import logo from './logo.svg';
 import './App.scss';
 
+
+
+
 function App() {
   // let colorTheme = _.sample(Object.values(ColorCodes));
   // let AppStyle = {

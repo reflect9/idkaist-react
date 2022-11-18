@@ -1,34 +1,56 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { t } from '../../../node_modules/i18next/index';
 import "./Footer.scss";
+
+import KAISTLogo from '@assets/logo-kaist.png';
+import { ReactComponent as Idkaist } from '../Logo/idkaist-notext.svg';
 
 function Footer() {
     const { t, i18n, ready } = useTranslation();
 
     return (<div className="Footer" >
-        <div className="column">
-            <div className="sectionLink"><a href='/home'>{t("Menu.Home")}</a></div>
-            <div className="sectionLink"><a href='/education'>{t("Menu.Education")}</a></div>
-            <div className="sectionLink"><a href='/research'>{t("Menu.Research")}</a></div>
-            <div className="sectionLink"><a href='/people'>{t("Menu.People")}</a></div>
-            <div className="sectionLink"><a href='/about'>{t("Menu.About")}</a></div>
-        </div>
-        <div className="column2">
-            <div className="address">
-                <b>Department of Industrial Design, KAIST</b> <br />
-                Bldg. N25, 291 Daehak-ro, Yuseong-gu, Daejeon 34141, Republic of Korea<br />
-                대전시 유성구 대학로291 N25동 산업디자인학과<br />
-                Tel. +82-42-350-4502~3 / Fax +82-42-350-4510<br />
-                © IDKAIST. All Rights Reserved.<br />
+        <div className="FooterSection">
+            <div className="FooterContent" >
+                <div className="department_info">
+                    <Idkaist />
+                    <p>
+                        Department of Industrial Design, KAIST<br/>
+                        한국과학기술원 산업디자인학과<br/>
+                    </p>
+                    <p>
+                        {t("About.Address")}<br />
+                        Tel. +82-42-350-4502~3 / Fax +82-42-350-4510<br />
+                    </p>
+
+                </div>
+                <div className="shortcuts">
+                    <div className="sectionLink"><a href='/home'>{t("Menu.Home")}</a></div>
+                    <div className="sectionLink"><a href='/education'>{t("Menu.Education")}</a></div>
+                    <div className="sectionLink"><a href='/research'>{t("Menu.Research")}</a></div>
+                    <div className="sectionLink"><a href='/people'>{t("Menu.People")}</a></div>
+                    <div className="sectionLink"><a href='/about'>{t("Menu.About")}</a></div>
+                </div>
             </div>
         </div>
-        <div className="column">
+        <div className="FooterSection">
+            <div className="FooterContent" >
+                <div className="left_column">
+                    <p className='small'>© IDKAIST. All Rights Reserved.</p>
+                </div>
+                <div className="right_column">
+                    <div className="kaist_logo">
+                        <a href='https://kaist.ac.kr'><img src={KAISTLogo} className="KAIST_Logo" /></a>
+                    </div>
+                </div>
+                
+            </div>
             
-        </div>
+        </div>    
         
-        
+
     </div>);
 }
 

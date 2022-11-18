@@ -1,44 +1,75 @@
 .Footer {
     width:100%;
     // height:320px;
-    background:#564F4E;
-    box-sizing:border-box;
-    padding:40px;
-    overflow:hidden;
-    color:white;
-    display:flex;
-    flex-direction: row;
-
-    .column {
-        flex:1 0 400px;
-        vertical-align: top;
-        height:100%;
-        .sectionLink {
-            display:inline-block;
-            box-sizing: border-box;
-            margin:0 0 10px 0;
-            padding-left:20px;
-            width:50%;
-            a {
-                text-decoration: none;
+    background:#f7f7f7;
+    .FooterSection {
+        border-bottom:3px solid #fff;
+    }
+    .FooterContent {
+        margin:auto;
+        max-width:1200px;
+        box-sizing:border-box;
+        padding:40px;
+        overflow:hidden;
+        color:#555;
+        display:flex;
+        flex-direction:row;
+        
+        .department_info {
+            flex:1 0 50%;
+            position:relative;
+            padding-left:54px; padding-top:16px;
+            width:200px;
+            svg {
+                display:block;
+                position:absolute;
+                top:0; left:0; 
             }
-            a:visited{
-                text-decoration: none;
-                color:inherit;   
+            p{
+                display:inline-block;
+                font-size:13px;
+                line-height:1.3em;
+                margin:0 0 6px 0;
+                
             }
         }
-    }
-    .column2 {
-        flex:1 0 800px;
-        height:100%;
-        .address {
-            box-sizing: border-box;
-            display:block;
-            word-break: break-all;
-            width:80%;
-            line-height:1.5em;
+        p.small {
             font-size:13px;
         }
+
+        .shortcuts {
+            flex:1 0 400px;
+            vertical-align: top;
+            height:100%;
+            .sectionLink {
+                display:inline-block;
+                box-sizing: border-box;
+                margin:0 0 10px 0;
+                padding-left:20px;
+                width:50%;
+                a {
+                    text-decoration: none;
+                }
+                a:visited{
+                    text-decoration: none;
+                    color:inherit;   
+                }
+            }
+        }
+
+        .left_column {
+            flex:1 0 50%;
+        }
+        .right_column {
+            flex:1 0 50%;
+            text-align:right;
+            .kaist_logo {
+                img {
+                    height:36px;
+                }
+            }
+        }
     }
+    
     
 }
