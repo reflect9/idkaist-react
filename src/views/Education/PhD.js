@@ -11,10 +11,11 @@ function PhD() {
     return (
         <div className="EducationContent">
             <div className="section_summary">
+                <h2>Course Overview</h2>
                 {t("Education.PhD.summary")}
             </div>
             <div className="section_content">
-                <div className="year_title"><em>{t("Education.PhD.thesisRequirementTitle")}</em></div>
+                <h2>{t("Education.PhD.thesisRequirementTitle")}</h2>
                 <div className="year_description">
                     {t("Education.PhD.thesisRequirementContent")}
                 </div>

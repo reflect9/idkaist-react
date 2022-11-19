@@ -22,7 +22,6 @@ function Research() {
 
   return (
     <div className="Research">
-      <Menu />
       <PageHeader  Section="Research"/>
       <LabList onChooseLab={setLabID} currentLab={labID}/>
       {content}

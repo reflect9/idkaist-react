@@ -11,6 +11,13 @@ import PageHeader from '@components/Page/PageHeader.js';
 import Articles from '@data/Articles';
 import "./Article.scss";
 
+
+/*
+노션으로 DB access하기 tutorials
+https://developers.notion.com/docs
+https://github.com/makenotion/notion-sdk-js
+*/
+
 function Article() {
     const { articleID } = useParams();
     const [ md, setMd ] = useState();

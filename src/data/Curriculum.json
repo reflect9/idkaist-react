@@ -241,7 +241,7 @@
     },
     "Master": {
         "1": {
-            "year_en": "Year 1",
+            "year_en": "First Year",
             "year_kr": "1년차",
             "year_role_en": "Exploration of the design discipline",
             "year_role_kr": "",
@@ -297,7 +297,7 @@
             }
         },
         "2": {
-            "year_en": "Year 2",
+            "year_en": "Second Year",
             "year_kr": "2년차",
             "year_role_en": "High-level Studies",
             "year_role_kr": "",

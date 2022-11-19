@@ -8,6 +8,7 @@ import About from './views/About/About.js';
 import Research from './views/Research/Research.js';
 import People from './views/People/People.js';
 import Article from './views/Article/Article.js';
+import ArticleList from './views/Article/ArticleList.js';
 
 import Footer from '@components/Footer/Footer.js';
 import ColorCodes from "@utils/ColorCodes.js";
@@ -42,6 +43,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/people" element={<People />} />
           <Route path="/article/:articleID" element={<Article />} />
+          <Route path="/articleList" element={<ArticleList />} />
           {/* Add more routes here */}
         </Routes>
       </Router>

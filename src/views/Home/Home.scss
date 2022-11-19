@@ -195,7 +195,7 @@
                     a.read_more {
                         display: inline-block;
                         margin-top: 16px;
-                        color: red;
+                        color: #F40019;
                         font-family: 'Courier New', Courier, monospace;
                         text-decoration: underline;
                     }
@@ -260,7 +260,7 @@
                 margin-bottom:12px;
             }
             .event_item {
-                border-top:1px solid red;
+                border-top:1px solid #F40019;
                 padding:21px 0;
                 .date {
                     font-family: 'Courier New', Courier, monospace;

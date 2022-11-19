@@ -8,6 +8,8 @@ class International extends Component {
     return (
       <div className="EducationContent">
         <div className="section_summary">
+          <h2>International Exchange Program</h2>
+        
           IDKAIST exchange students with the following universities based on department-level MOUs.
           <ul className="disc">
             <li>School of Design, Carnegie Mellon University, USA</li>

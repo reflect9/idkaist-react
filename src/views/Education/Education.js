@@ -44,28 +44,29 @@ function Education() {
   // };
   return (
     <div className="Education">
-      <Menu />
-      <PageHeader Section="Education"/>
+      {/* <Menu /> */}
+      <PageHeader Section="Education" />
+      <div className="coverImage">
+        <img src="images/department/students_prototyping.png" />
+      </div>
+      <div className="tabNav">
+          <ul>
+            {/* <li className="active"><a href="/education/undergraduate">{t('Menu.Undergraduate')}</a></li>
+              <li className="active"><a href="/education/master">{t('Menu.Master')}</a></li>
+              <li className="active"><a href="/education/phd">{t('Menu.PhD')}</a></li>
+              <li className="active"><a href="/education/international">{t('Menu.International')}</a></li> */}
+            <li className={tab == "Undergraduate" ? 'active' : null} onClick={() => { setTab("Undergraduate") }}>{t("Menu.Undergraduate")}</li>
+            <li className={tab == "Master" ? 'active' : null} onClick={() => { setTab("Master") }}>{t("Menu.Master")}</li>
+            <li className={tab == "PhD" ? 'active' : null} onClick={() => { setTab("PhD") }}>{t("Menu.PhD")}</li>
+            <li className={tab == "International" ? 'active' : null} onClick={() => { setTab("International") }}>{t("Menu.International")}</li>
+          </ul>
+      </div>
       <div className="PageContentWrapper">
         {/* <div className="PageTitle">
           {t("Menu.Education")}
         </div> */}
         <div className="PageContent">
-          <p>
-          [전반적인 교육 과정에 대한 내용 설명] [이미지 있으면 좋을듯?]
-          </p>
-          <div className="tabNav">
-            <ul>
-              {/* <li className="active"><a href="/education/undergraduate">{t('Menu.Undergraduate')}</a></li>
-              <li className="active"><a href="/education/master">{t('Menu.Master')}</a></li>
-              <li className="active"><a href="/education/phd">{t('Menu.PhD')}</a></li>
-              <li className="active"><a href="/education/international">{t('Menu.International')}</a></li> */}
-              <li className={tab == "Undergraduate" ? 'active' : null} onClick={() => { setTab("Undergraduate") }}><button>{t("Menu.Undergraduate")}</button></li>
-              <li className={tab == "Master" ? 'active' : null} onClick={() => { setTab("Master") }}><button>{t("Menu.Master")}</button></li>
-              <li className={tab == "PhD" ? 'active' : null} onClick={() => { setTab("PhD") }}><button>{t("Menu.PhD")}</button></li>
-              <li className={tab == "International" ? 'active' : null} onClick={() => { setTab("International") }}><button>{t("Menu.International")}</button></li>
-            </ul>
-          </div>
+
           <div className="tabContent">
             {tabContent}
           </div>
