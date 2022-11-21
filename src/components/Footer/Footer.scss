@@ -7,7 +7,7 @@
     }
     .FooterContent {
         margin:auto;
-        max-width:1200px;
+        // max-width:1200px;
         box-sizing:border-box;
         padding:40px;
         overflow:hidden;
@@ -26,7 +26,7 @@
                 top:0; left:0; 
             }
             p{
-                display:inline-block;
+                display:block;
                 font-size:13px;
                 line-height:1.3em;
                 margin:0 0 6px 0;
@@ -63,7 +63,17 @@
         .right_column {
             flex:1 0 50%;
             text-align:right;
+            .languageSelector {
+                display:inline-block;
+                padding:10px 10px;
+                margin-right:20px;
+                background-color: black;
+                color:white;
+                text-transform: uppercase;
+                vertical-align: bottom;
+            }
             .kaist_logo {
+                display:inline-block;
                 img {
                     height:36px;
                 }

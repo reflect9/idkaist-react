@@ -5,10 +5,11 @@
         font-weight:300;
     }
     .coverImage{
-        width:100%;
-        min-width:800px;
+        height:500px;
         img {
             width:100%;
+            height:inherit;
+            object-fit: cover;
         }
     }
     .tabNav {
@@ -57,7 +58,7 @@
     }
     .PageContentWrapper {
         margin: 0 auto;
-        width: 800px;
+        width: 1100px;
         .PageTitle {
             height: 54px;
             width: 100%;

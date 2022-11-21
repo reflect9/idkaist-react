@@ -37,24 +37,86 @@ function About() {
   }
   return (
     <div className="About">
-      <Menu/>
       <PageHeader  Section="About"/>
+      <div className="coverImage">
+        <img src="images/department/KAlounge_03.jpg" />
+      </div>
       <div className="PageContentWrapper">
-        {/* <div className="PageTitle">
-          About
-        </div> */}
-        <div className="PageContent">
-          <div className="tabNav">
+        <div className="section_summary">
+          <h2>About ID KAIST</h2>
+          {t("About.Mission")}
+        </div>
+        <div className="banner_light">
+          <div className="tag">MISSION</div>
+          <div className="content">
+            <div className="title"><em>Shape the Future:</em> Design for a Better Life</div>
+            <div className="description">
+            · Cultivate designers active in the front end of innovation<br/>
+            · Generate integrated design knowledge<br/>
+            · Become a leading research-oriented design education program<br/>
+            </div>
+          </div>
+        </div>
+        <div className="banner_dark">
+          <div className="tag">VISION</div>
+          <div className="content">
+            <div className="description">
+            ID KAIST strives to be a new design school that leads the design field for the 4th Industrial Revolution. ID KAIST has enormous potentials in that it <em>fosters designers who create innovative, integrated, and aesthetic solutions to problems that industry and society face,</em> based on in-depth understandings of people, technology, business, and society. 
+            </div>
+          </div>
+        </div>
+        <div className="banner_noframe">
+          <p>The following advantages of ID KAIST will play a decisive role in realizing its potential:
             <ul>
-              <li className={tab=="Mission" ? 'active':null} onClick={()=>{setTab("Mission")}}><button>{t("About.tabs.Mission")}</button></li>
-              <li className={tab=="History" ? 'active':null} onClick={()=>{setTab("History")}}><button>{t("About.tabs.History")}</button></li>
-              <li className={tab=="Reputation" ? 'active':null} onClick={()=>{setTab("Reputation")}}><button>{t("About.tabs.Reputation")}</button></li>
-              <li className={tab=="Contact" ? 'active':null} onClick={()=>{setTab("Contact")}}><button>{t("About.tabs.Contact")}</button></li>
+              <li>Outstanding faculty from various backgrounds, from design to technology</li>
+              <li>Excellent students who are passionate about design and technology</li>
+              <li>World-class research-centered convergent design graduate school</li>
+              <li>Close collaboration with various departments at KAIST</li>
+              <li>Pursuing positive and sustainable impacts for a better life of mankind</li>
+              <li>Future-oriented design research on diverse topics</li>
             </ul>
+            ID KAIST has held since 2016 the Design 3.0 Forum, an annual international event that explores new possibilities for design education and research in the era of the 4th Industrial Revolution. Looking ahead to the future, ID KAIST aims to create a positive and sustainable impact that enables a better life and future for the whole of mankind, through human-centered research and education.
+          </p>
+        </div>
+        <div className="badges">
+          <div className="badge badge_red shadow-box">
+            <div className="title content">223</div>
+            <div className="description">Paper publications from 2016 to 2021</div>
           </div>
-          <div className="tabContent">
-            {tabContent}
+          <div className="badge badge_black shadow-box">
+          <div className="title content">$5.5M</div>
+            <div className="description">Research Grants Awarded in 202</div>
           </div>
+          <div className="badge badge_red shadow-box">
+            <div className="title content">57</div>
+            <div className="description">Patents from 2016 to 2021</div>
+          </div>
+          <div className="badge badge_black shadow-box">
+            <div className="title content">36</div>
+            <div className="description">SCI/SSCI journal papers from 2016 to 2021</div>
+          </div>
+        </div>
+        <div className="banner_noframe">
+          <h3>History</h3>
+          <p>Focusing on humans, technology, and business for the past 25 years, ID KAIST has been recognized as being among the top 30 design schools in the world. Over the next 15 years, we will pursue design-driven convergence between education and research to establish a world-leading design school with a new paradigm of design and the human life.
+            <ul className="historyTable">
+              <li><span className="year">1971</span> KAIST Extablished</li>
+              <li><span className="year">1986</span> ID KAIST Extablished</li>
+              <li><span className="year">1990</span> First BSID Graduation</li>
+              <li><span className="year">1991</span> Post-graduate Program Launched</li>
+              <li><span className="year">2002</span> Doctoral Program Launched</li>
+              <li><span className="year">2006</span> Leaping toward globalization
+                <ul className="smallTable">
+                  <li>Participation in BK21 program</li>
+                  <li>Participation in the WCU (World Class University) program</li>
+                  <li>Selected as one of BusinessWeek's 60 best design programs</li>
+                  <li>Organizing 'Catch the Future' workshop</li>
+                  <li>Selected as one of BusinessWeek's 30 best design programs</li>
+                </ul>
+              </li>
+            </ul>
+            ID KAIST has held since 2016 the Design 3.0 Forum, an annual international event that explores new possibilities for design education and research in the era of the 4th Industrial Revolution. Looking ahead to the future, ID KAIST aims to create a positive and sustainable impact that enables a better life and future for the whole of mankind, through human-centered research and education.
+          </p>
         </div>
       </div> 
     </div>

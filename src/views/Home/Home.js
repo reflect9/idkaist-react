@@ -16,6 +16,9 @@ let Home = ({ }) => {
 	const changeLanguage = (m) => {
 		i18n.changeLanguage(m);
 	}
+	const getRandomNumber = ()=>{
+        return (Math.floor(Math.random()*10));
+    }
 	// END OF 한영 변환
 	const [filterMode, setFilterMode] = useState("All");
 
@@ -46,7 +49,7 @@ let Home = ({ }) => {
 							<div className="featured_items">
 								<div className="main_feature">
 									<div className="item_image">
-										<img src="https://source.unsplash.com/random/600x800" />
+										<img src={"https://source.unsplash.com/random/600x800?sig="+getRandomNumber()} />
 									</div>
 									<div className="item_details">
 										<div className="item_kind">
@@ -67,28 +70,28 @@ let Home = ({ }) => {
 										<div className="item_kind">NEWS</div>
 										<div className="item_title">주한미국대사관 산업디자인학과 방문 </div>
 									</div>
-									<div className="item_image"><img src="https://source.unsplash.com/random/160x180" /></div>
+									<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig="+getRandomNumber()} /></div>
 								</div>
 								<div className="semi_featured">
 									<div className="item_details">
 										<div className="item_kind">NEWS</div>
 										<div className="item_title">남택진 교수팀의 MCM(이동형 음압병동)이 부족한 음압병상 부족 사태 해결에 기여</div>
 									</div>
-									<div className="item_image"><img src="https://source.unsplash.com/random/160x180" /></div>
+									<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig="+getRandomNumber()} /></div>
 								</div>
 								<div className="semi_featured">
 									<div className="item_details">
 										<div className="item_kind">NEWS</div>
 										<div className="item_title">2019년 첫 수요 융합포럼 개최 </div>
 									</div>
-									<div className="item_image"><img src="https://source.unsplash.com/random/160x180" /></div>
+									<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig="+getRandomNumber()} /></div>
 								</div>
 								<div className="semi_featured">
 									<div className="item_details">
 										<div className="item_kind">NEWS</div>
 										<div className="item_title">주한미국대사관 산업디자인과 방문</div>
 									</div>
-									<div className="item_image"><img src="https://source.unsplash.com/random/160x180" /></div>
+									<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig="+getRandomNumber()} /></div>
 								</div>
 							</div>
 
@@ -98,7 +101,7 @@ let Home = ({ }) => {
 					{/* 두번째 섹션 시작 */}
 					<div className="section">
 						<div className="sticky_half poster">
-							<img src="https://source.unsplash.com/random/800x800"/>
+							<img src={"https://source.unsplash.com/random/600x800?sig="+getRandomNumber()} />
 						</div>
 						<div className="scrolling_half">
 							{/* 공지사항 (날짜포함) */}

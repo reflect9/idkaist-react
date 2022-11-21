@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
+import React, {useRef} from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import _ from "lodash";
 import "./LabList.scss";
-import { CgArrowRight, CgArrowLeft } from "react-icons/cg";
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 import Labs from "@data/Labs";
 
-function LabList({onChooseLab, currentLab}) {
+function LabList({ onChooseLab, currentLab }) {
     const { t } = useTranslation();
+    const listBox = useRef(null);
     const onClickLab = (lc) => {
-        if (lc==currentLab) onChooseLab(undefined);
+        if (lc == currentLab) onChooseLab(undefined);
         else onChooseLab(lc);
     };
-    const Labs_LI = _.map(Labs, (labData, labCode)=>{
+    const Labs_LI = _.map(Labs, (labData, labCode) => {
         // console.log(labCode);
-        const img = require("../../assets/labs/logo/"+labData.lab_logo);
-        return <li onClick={()=>{onClickLab(labCode)}} className={(currentLab == labCode)? "active":""} key={labCode}>
+        const img = require("../../assets/labs/logo/" + labData.lab_logo);
+        return <li onClick={() => { onClickLab(labCode) }} className={(currentLab == labCode) ? "active" : ""} key={labCode}>
             {/* <div className="title">{labData.lab}</div> */}
             <div className="thumbnail">
-                <img src={img}/>
+                <img src={img} />
             </div>
         </li>
     });
@@ -27,18 +28,14 @@ function LabList({onChooseLab, currentLab}) {
     if (typeof currentLab !== "undefined") {
         listClass = "small";
     }
-    // setTimeout(()=>{
-    //     let selectedLI = document.querySelector(".LabList li.active");
-    //     if (selectedLI) {
-    //         console.log(selectedLI);
-    //         selectedLI.parentNode.scrollLeft = selectedLI.offsetLeft - 50;
-    //     }
-    // },1000);
+    
     return <div className={"LabList " + listClass}>
-        <div className="scrollX"> <CgArrowLeft/> {t("Research.LabList.scrollMessage")} <CgArrowRight/> </div>
-        <ul>    
+        {/* <div className="scrollX"> <CgArrowLeft/> {t("Research.LabList.scrollMessage")} <CgArrowRight/> </div> */}
+        <div className="leftArrow" onClick={()=>{listBox.current.scrollLeft -= 500;}}> <MdArrowBackIos /> </div>
+        <ul ref={listBox}>
             {Labs_LI}
         </ul>
+        <div className="rightArrow" onClick={()=>{listBox.current.scrollLeft += 500;}}> <MdArrowForwardIos /> </div>
     </div>
 }
 

@@ -44,7 +44,6 @@ function Education() {
   // };
   return (
     <div className="Education">
-      {/* <Menu /> */}
       <PageHeader Section="Education" />
       <div className="coverImage">
         <img src="images/department/students_prototyping.png" />
