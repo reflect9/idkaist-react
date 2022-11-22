@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkidkaist_react=self.webpackChunkidkaist_react||[]).push([[266],{2266:function(e,a,c){e.exports=c.p+"static/media/chungkyungwon.dff0c7066dee03c861aa.md"}}]);
