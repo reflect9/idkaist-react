@@ -1,6 +1,7 @@
 import _ from "lodash";
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from "react-router-dom";
 import Menu from '@components/Menu/Menu.js';
 import PageHeader from '@components/Page/PageHeader.js';
 import PeopleData from "@data/People.json";
@@ -8,8 +9,8 @@ import LabData from "@data/Labs.json";
 import { useTranslation } from 'react-i18next';
 import "./People.scss";
 
-function People() {
-  const [tab, setTab] = useState("All");
+function People({filter}) {
+  // const [tab, setTab] = useState("All");
   const { t, i18n, ready } = useTranslation();
   const roles = ["Faculty", "OldFaculty", "Staff", "OtherFaculty"];
   const LabPeopleData = _.merge({}, LabData, PeopleData);
@@ -18,7 +19,7 @@ function People() {
   const renderPerson = (p)=>{
     return (<div className="person">
         <div className="photo">
-          <img src={"images/people/"+p.thumbnail}/>
+          <img src={"/images/people/"+p.thumbnail}/>
         </div>
         <div className="name">
           {i18n.language=="kr"?p.name_kr:p.name_en}
@@ -31,7 +32,7 @@ function People() {
   }
   // method for rendering everyone filtered
   let peopleEl = _.map(LabPeopleData,(p)=>{
-    if (tab !="All" && p.role != tab) return;
+    if (filter !="All" && p.role != filter) return;
     else {
       return renderPerson(p);
     }
@@ -66,12 +67,11 @@ function People() {
 
   return (
     <div className="People">
-      <PageHeader Section="People" />
       <div className="tabNav">
           <ul>
-            <li className={tab == "All" ? 'active' : null} onClick={() => { setTab("All") }}>{t("People.role.All")}</li>
+            <li className={filter == "All" ? 'active' : null} > <Link to="/people/All">{t("People.role.All")}</Link> </li>
             {roles.map(r => (
-              <li className={tab == r ? 'active' : null} onClick={() => { setTab(r) }}>{t("People.role."+r)}</li>
+              <li className={filter == r ? 'active' : null}>  <Link to={"/people/"+r}>{t("People.role."+r)}</Link> </li>
             ))}
           </ul>
       </div>

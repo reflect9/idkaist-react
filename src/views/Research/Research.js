@@ -36,7 +36,6 @@ function Research() {
 
   return (
     <div className="Research">
-      <PageHeader  Section="Research"/>
       {/* <div className="coverImage">
         <img src="images/department/building.jpg" />
       </div> */}

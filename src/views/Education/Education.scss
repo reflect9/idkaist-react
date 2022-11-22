@@ -37,22 +37,29 @@
                 border-top:3px solid transparent;
                 color:#000;
                 cursor:pointer;
-                // a,
-                // button {
-                //     border: none;
-                //     background: none;
-                //     font-size: 16px;
-                //     font-weight: 600;
-                //     color: #3a3a3a;
-                //     text-decoration: none;
-                //     text-transform: uppercase;
-                // }
+                a,
+                button {
+                    border: none;
+                    background: none;
+                    // font-size: 16px;
+                    // font-weight: 600;
+                    color:#707070;
+                    text-decoration: none;
+                    // text-transform: uppercase;
+                }
             }
             li:hover {
                 border-top:3px solid #F40019;
+                a {
+                    color:black;
+                }
             }
             li.active {
                 border-top:3px solid #F40019;
+                a {
+                    font-weight:600;
+                    color:#3a3a3a;
+                }
             }
         }
     }

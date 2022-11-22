@@ -37,7 +37,6 @@ function About() {
   }
   return (
     <div className="About">
-      <PageHeader  Section="About"/>
       <div className="coverImage">
         <img src="images/department/KAlounge_03.jpg" />
       </div>

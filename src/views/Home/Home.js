@@ -24,7 +24,6 @@ let Home = ({ }) => {
 
 	return (
 		<div className="Home">
-			<PageHeader Section="Home" />
 			<div className="HomeWrapper">
 				<div className="HomeContent">
 					<div className="section">

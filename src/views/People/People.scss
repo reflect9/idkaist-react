@@ -8,7 +8,6 @@
         background: #f7f7f7;
         width:100%;
         width:auto;
-        margin-top: -4px;
         z-index:1;
         border-bottom: 1px solid #eaeaea;
         ul {
@@ -27,23 +26,23 @@
                 font-size:14px;
                 text-transform: uppercase;
                 border-top:3px solid transparent;
-                color:#000;
+                color:#707070;
                 cursor:pointer;
-                // a,
-                // button {
-                //     border: none;
-                //     background: none;
-                //     font-size: 16px;
-                //     font-weight: 600;
-                //     color: #3a3a3a;
-                //     text-decoration: none;
-                //     text-transform: uppercase;
-                // }
+                a,
+                button {
+                    border: none;
+                    background: none;
+                    color: #3a3a3a;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                }
             }
             li:hover {
                 border-top:3px solid #F40019;
             }
             li.active {
+                color:#000;
+                font-weight:600;
                 border-top:3px solid #F40019;
             }
         }
@@ -103,7 +102,7 @@
         .person {
             width:250px; height:370px;
             font-size:15px;
-            font-family: "Work sans", sans-serif;
+            // font-family: "Work sans", sans-serif;
             .photo {
                 margin-right:80px;
                 img {

@@ -3,92 +3,70 @@ import ReactDOM from 'react-dom';
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { VscBook } from "react-icons/vsc";
-import Logo from '@assets/logo-idkaist.js';
+import { GrClose } from "react-icons/gr";
+import { BiSearch } from "react-icons/bi";
 import "./Menu.scss";
 
-import {
-  ProSidebar,
-  SidebarHeader,
-  SidebarFooter,
-  Menu as MenuRPS,
-  MenuItem,
-  SubMenu
-} from 'react-pro-sidebar';
 
-function Menu() {
+function Menu({ setIsMenuActive }) {
   const { t, i18n, ready } = useTranslation();
-  const [collapsed, setCollapsed] = useState(true);
   // const [language, setLanguage] = useState(i18n.language);
-  const toggleMenu = () => {
-    setCollapsed(!collapsed);
-  }
+
   const changeLanguage = (m) => {
     i18n.changeLanguage(m);
     // setLanguage(m);
   }
-  let backdrop = undefined;
-  if (collapsed === false) {
-    backdrop = <div className="backdrop" onClick={toggleMenu}></div>
-  }
-
   return (
     <div className="Menu">
-      <div className="MenuOpenButton" onClick={toggleMenu}>
-        {/* <VscBook/> */}
-        {/* <img src={DepartmentLogo} fill="red"/> */}
-        <Logo fill="#222" />
+      <div className="MenuCloseButton" onClick={() => { setIsMenuActive(false) }}>
+        <GrClose />
       </div>
-      {backdrop}
-      <ProSidebar collapsed={collapsed}>
-        {/* <div className="LanguageSelector">
-          <span className={i18n.language == "kr" ? 'active' : null}
-            onClick={() => changeLanguage("kr")}>Kr</span>&nbsp;
-          <span className={i18n.language == "en" ? 'active' : null}
-            onClick={() => changeLanguage("en")}>En</span>
-        </div> */}
-        <div className="MenuCloseButton" onClick={toggleMenu}>
-          {/* <VscBook/> */}
-          <Logo fill="white" />
+      <div className="menuToolBar">
+        <div className="searchUI">
+          <input type="text" className="input" placeholder="Search: Not Implemented Yet"/>
+          <button type="submit">
+            <BiSearch/>
+          </button>
         </div>
-        <MenuRPS iconShape="square">
-          <MenuItem>{t("Menu.Home")}
-            <Link to="/home" />
-          </MenuItem>
-          {/* <MenuItem>{t("Menu.Highlights")}</MenuItem> */}
-          <MenuItem>{t("Menu.Education")}
-            <Link to="/education"/>
-          </MenuItem>
-          {/* <SubMenu title={t("Menu.Education")}>
-            <MenuItem>{t("Menu.Undergraduate")}
-              <Link to="/education/undergraduate"/>
-            </MenuItem>
-            <MenuItem>{t("Menu.Master")}
-              <Link to="/education/master"/>
-            </MenuItem>
-            <MenuItem>{t("Menu.PhD")}
-              <Link to="/education/phd"/>
-            </MenuItem>
-            <MenuItem>{t("Menu.International")}
-              <Link to="/education/international"/>
-            </MenuItem>
-          </SubMenu> */}
-          <MenuItem>{t("Menu.Research")}
-          <Link to="/research"/>
-          </MenuItem>
-          <MenuItem>{t("Menu.People")} <Link to="/people" /></MenuItem>
-          <MenuItem>{t("Menu.About")} <Link to="/about" /></MenuItem>
-        </MenuRPS>
-        {/* <SidebarFooter>
-            ID KAIST
-          </SidebarFooter> */}
-      </ProSidebar>
-      {/* <ul className="MenuItems">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/highlights">Highlights</Link></li>
-          <li><Link to="/labs">Labs</Link></li>
-          <li><Link to="/people">People</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul> */}
+        <div className="LanguageSelector" onClick={() => {
+          if (i18n.language == "kr") changeLanguage("en");
+          else changeLanguage("kr");
+        }}>
+          <span className={i18n.language == "kr" ? 'active' : null}>한글</span>&nbsp;&nbsp;&nbsp;
+          <span className={i18n.language == "en" ? 'active' : null}>ENGLISH</span>
+        </div>
+      </div>
+      <div className="MenuItems">
+        <div className="L1">
+          <Link to="/education">{t("Menu.Education")}</Link>
+          <div className="L2">
+            <Link to="/education/Undergraduate">{t("Menu.Undergraduate")}</Link>
+            <Link to="/education/Master">{t("Menu.Master")}</Link>
+            <Link to="/education/PhD">{t("Menu.PhD")}</Link>
+            <Link to="/education/International">{t("Menu.International")}</Link>
+          </div>
+        </div>
+        <div className="L1">
+          <Link to="/research">{t("Menu.Research")}</Link>
+          <div className="L2">
+          </div>
+        </div>
+        <div className="L1">
+          <Link to="/people">{t("Menu.People")}</Link>
+          <div className="L2">
+            <Link to="/people/All">{t("People.role.All")}</Link>
+            <Link to="/people/Faculty">{t("People.role.Faculty")}</Link>
+            <Link to="/people/OldFaculty">{t("People.role.OldFaculty")}</Link>
+            <Link to="/people/Staff">{t("People.role.Staff")}</Link>
+            <Link to="/people/OtherFaculty">{t("People.role.OtherFaculty")}</Link>
+          </div>
+        </div>
+        <div className="L1">
+          <Link to="/about">{t("Menu.About")}</Link>
+          <div className="L2">
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

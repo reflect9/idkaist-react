@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
 
-import Menu from '@components/Menu/Menu.js';
-import PageHeader from '@components/Page/PageHeader.js';
 import "./Education.scss";
 
 import Undergraduate from './Undergraduate.js';
@@ -11,63 +10,43 @@ import Master from './Master.js';
 import PhD from './PhD.js';
 import International from './International.js';
 
-function Education() {
-  // const navigate = useNavigate();
-  // let { course } = useParams();
-  // // let course = props.course;
-  // if (typeof course == "undefined") course = "undergraduate";
-  // console.log(course);
-  const [tab, setTab] = useState("Undergraduate");
+function Education({course}) {
   const { t } = useTranslation();
-
-  let tabContent;
-  if (tab == "Undergraduate") {
-    tabContent = (<div>
+  let courseContent;
+  if (course == "Undergraduate") {
+    courseContent = (<div>
       <Undergraduate />
     </div>);
-  } else if (tab == "Master") {
-    tabContent = (<div>
+  } else if (course == "Master") {
+    courseContent = (<div>
       <Master />
     </div>);
-  } else if (tab == "PhD") {
-    tabContent = (<div>
+  } else if (course == "PhD") {
+    courseContent = (<div>
       <PhD />
     </div>);
-  } else if (tab == "International") {
-    tabContent = (<div>
+  } else if (course == "International") {
+    courseContent = (<div>
       <International />
     </div>);
   }
-  // const changeTab = (newTab)=>{
-  //   // navigate(newTab);
-  //   setTab(newTab);
-  // };
   return (
     <div className="Education">
-      <PageHeader Section="Education" />
       <div className="coverImage">
-        <img src="images/department/students_prototyping.png" />
+        <img src="/images/department/students_prototyping.png" />
       </div>
       <div className="tabNav">
           <ul>
-            {/* <li className="active"><a href="/education/undergraduate">{t('Menu.Undergraduate')}</a></li>
-              <li className="active"><a href="/education/master">{t('Menu.Master')}</a></li>
-              <li className="active"><a href="/education/phd">{t('Menu.PhD')}</a></li>
-              <li className="active"><a href="/education/international">{t('Menu.International')}</a></li> */}
-            <li className={tab == "Undergraduate" ? 'active' : null} onClick={() => { setTab("Undergraduate") }}>{t("Menu.Undergraduate")}</li>
-            <li className={tab == "Master" ? 'active' : null} onClick={() => { setTab("Master") }}>{t("Menu.Master")}</li>
-            <li className={tab == "PhD" ? 'active' : null} onClick={() => { setTab("PhD") }}>{t("Menu.PhD")}</li>
-            <li className={tab == "International" ? 'active' : null} onClick={() => { setTab("International") }}>{t("Menu.International")}</li>
+            <li className={course == "Undergraduate" ? 'active' : null} > <Link to="/education/Undergraduate">{t("Menu.Undergraduate")}</Link> </li>
+            <li className={course == "Master" ? 'active' : null} > <Link to="/education/Master">{t("Menu.Master")}</Link> </li>
+            <li className={course == "PhD" ? 'active' : null} > <Link to="/education/PhD">{t("Menu.PhD")}</Link> </li>
+            <li className={course == "International" ? 'active' : null} > <Link to="/education/International">{t("Menu.International")}</Link></li>
           </ul>
       </div>
       <div className="PageContentWrapper">
-        {/* <div className="PageTitle">
-          {t("Menu.Education")}
-        </div> */}
         <div className="PageContent">
-
           <div className="tabContent">
-            {tabContent}
+            {courseContent}
           </div>
         </div>
       </div>

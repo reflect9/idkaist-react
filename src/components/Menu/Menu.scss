@@ -1,65 +1,106 @@
-
 .Menu {
-    position:fixed;
-    top:0; left:0; bottom:0;
-    height:100%;
-    z-index:101;
-    .MenuOpenButton {
-        position:absolute;
-        top:16px; left:21px;
-        width:32px; height:32px;
-        font-size:24px;
-        svg {
-            height:32px;
-        }
-    }
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 100;
+    padding:23px 38px 0 60px;
+    background-color: #fff;
+
     .MenuCloseButton {
-        font-size:24px;
-        margin:16px 0 0 21px;
+        display:block;
+        box-sizing: border-box;
+        width:100%; text-align: right;
+        font-size: 20px;
+        cursor: pointer;
         svg {
-            height:32px;
+            height: 36px;
         }
     }
-    .LanguageSelector {
-        position:absolute;
-        top:16px; right:16px;
-        font-size:16px;
-        span.active {
-            color:#dadada;
+
+    .menuToolBar {
+        display: flex;
+        flex-direction: row;
+        margin-top:16px;
+        gap:42px;
+        .searchUI {
+            flex:1 1 auto;
+            background: white;
+            position: relative;
+            input {
+                width: 100%;
+                padding: 14px 60px 14px 20px;
+                display: block;
+                box-sizing:border-box;
+                font-size:16px;
+                border:none;
+                background-color: #efefef;
+
+            }
+            button {
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                display: inline-block;
+                font-size: 20px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 11px 20px;
+                z-index: 2;
+                svg {
+                    vertical-align: middle;
+                }
+            }
+
         }
-        span {
-            cursor:pointer;
-            color:#555;
+
+        .LanguageSelector {
+            flex:0 0 auto;
+            font-size: 13px;
+            background: black;
+            padding: 14px 16px;
+            text-align: center;
+            cursor: pointer;
+    
+            span.active {
+                display: inline;
+                color: #fff;
+            }
+    
+            span {
+                display: inline;
+                color: #555; 
+            }
         }
     }
-    .backdrop {
-        position:fixed;
-        top:0; right:0; bottom:0; left:0;
-        background:rgba(0,0,0,0.3);
+
+    .MenuItems {
+        margin: 40px 0;
+        font-size: 18px;
+
+        .L1 {
+            margin-top: 32px;
+            font-weight:800;
+            a {
+                color: #707070;
+                font-weight: 800;
+                text-decoration: none;
+                line-height: 1.8em;
+            }
+
+            .L2 {
+                margin-left:12px;
+                a {
+                    display: block;
+                    font-weight: 400;
+                    line-height: 1.8em;
+                }
+            }
+        }
     }
+
+
 }
-
-$sidebar-bg-color: #000 !default;
-$sidebar-color: #adadad !default;
-$sidebar-height: 100% !default;
-$sidebar-width: 220px !default;
-$sidebar-collapsed-width: 0px !default;
-$highlight-color: #d8d8d8 !default;
-$submenu-bg-color: #000 !default;
-$submenu-bg-color-collapsed: #2b2b2b !default;
-$icon-bg-color: #2b2b2b !default;
-$icon-size: 35px !default;
-$submenu-indent: 28px !default;
-$breakpoint-xs: 480px !default;
-$breakpoint-sm: 576px !default;
-$breakpoint-md: 768px !default;
-$breakpoint-lg: 992px !default;
-$breakpoint-xl: 1200px !default;
-$breakpoint-xxl: 1600px !default;
-
-@import '~react-pro-sidebar/dist/scss/styles.scss';
-
-.pro-inner-item {
-    padding:12px 35px 12px 20px !important;
-}
-
