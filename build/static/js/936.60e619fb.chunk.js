@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkidkaist_react=self.webpackChunkidkaist_react||[]).push([[936],{6936:function(e,a,t){e.exports=t.p+"static/media/aline.d90fa0b22439e5e92b83.md"}}]);

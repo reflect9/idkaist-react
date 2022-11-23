@@ -1,6 +1,7 @@
 {
   "name": "idkaist-react",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.4.3",
@@ -35,7 +36,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +58,8 @@
     ]
   },
   "devDependencies": {
-    "json-loader": "^0.5.7"
+    "gh-pages": "^4.0.0",
+    "json-loader": "^0.5.7",
+    "mini-css-extract-plugin": "2.4.5"
   }
 }

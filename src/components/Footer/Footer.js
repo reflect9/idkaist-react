@@ -33,11 +33,11 @@ function Footer() {
 
                 </div>
                 <div className="shortcuts">
-                    <div className="sectionLink"><a href='/home'>{t("Menu.Home")}</a></div>
-                    <div className="sectionLink"><a href='/education'>{t("Menu.Education")}</a></div>
-                    <div className="sectionLink"><a href='/research'>{t("Menu.Research")}</a></div>
-                    <div className="sectionLink"><a href='/people'>{t("Menu.People")}</a></div>
-                    <div className="sectionLink"><a href='/about'>{t("Menu.About")}</a></div>
+                    <Link to="/home"><div className="sectionLink">{t("Menu.Home")}</div></Link>
+                    <Link to="/education"><div className="sectionLink">{t("Menu.Education")}</div></Link>
+                    <Link to="/research"><div className="sectionLink">{t("Menu.Research")}</div></Link>
+                    <Link to="/people"><div className="sectionLink">{t("Menu.People")}</div></Link>
+                    <Link to="/about"><div className="sectionLink">{t("Menu.About")}</div></Link>
                 </div>
             </div>
         </div>

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkidkaist_react=self.webpackChunkidkaist_react||[]).push([[391],{8391:function(e,a,t){e.exports=t.p+"static/media/1.e4e00abf774a2654e015.png"}}]);

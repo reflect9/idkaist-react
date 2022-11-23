@@ -14,7 +14,7 @@ function People({filter}) {
   const { t, i18n, ready } = useTranslation();
   const roles = ["Faculty", "OldFaculty", "Staff", "OtherFaculty"];
   const LabPeopleData = _.merge({}, LabData, PeopleData);
-  console.log(LabPeopleData);
+  // console.log(LabPeopleData);
   // method for rendering individual
   const renderPerson = (p)=>{
     return (<div className="person">

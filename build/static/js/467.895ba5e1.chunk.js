@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkidkaist_react=self.webpackChunkidkaist_react||[]).push([[467],{5467:function(e,t,a){e.exports=a.p+"static/media/virtualwire.3a8272f84dd7114efcc4.md"}}]);

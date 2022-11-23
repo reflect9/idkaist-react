@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkidkaist_react=self.webpackChunkidkaist_react||[]).push([[430],{5430:function(t,s,c){t.exports=c.p+"static/media/dis2021_outstanding.11f36f71fc721c0cbe89.md"}}]);

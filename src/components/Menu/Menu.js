@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -11,14 +11,24 @@ import "./Menu.scss";
 function Menu({ setIsMenuActive }) {
   const { t, i18n, ready } = useTranslation();
   // const [language, setLanguage] = useState(i18n.language);
-
   const changeLanguage = (m) => {
     i18n.changeLanguage(m);
     // setLanguage(m);
   }
+  useEffect(()=>{
+    document.querySelector(".Menu").classList.remove("small");
+  }, []);
+  const closeMenu = ()=> {
+    console.log("close!");
+    document.querySelector(".Menu").classList.add("small");
+    setTimeout(()=>{
+      
+      setIsMenuActive(false);
+    },300);
+  }
   return (
-    <div className="Menu">
-      <div className="MenuCloseButton" onClick={() => { setIsMenuActive(false) }}>
+    <div className="Menu small">
+      <div className="MenuCloseButton" onClick={closeMenu}>
         <GrClose />
       </div>
       <div className="menuToolBar">
@@ -38,31 +48,31 @@ function Menu({ setIsMenuActive }) {
       </div>
       <div className="MenuItems">
         <div className="L1">
-          <Link to="/education">{t("Menu.Education")}</Link>
+          <Link onClick={closeMenu} to="/education">{t("Menu.Education")}</Link>
           <div className="L2">
-            <Link to="/education/Undergraduate">{t("Menu.Undergraduate")}</Link>
-            <Link to="/education/Master">{t("Menu.Master")}</Link>
-            <Link to="/education/PhD">{t("Menu.PhD")}</Link>
-            <Link to="/education/International">{t("Menu.International")}</Link>
+            <Link onClick={closeMenu} to="/education/Undergraduate">{t("Menu.Undergraduate")}</Link>
+            <Link onClick={closeMenu} to="/education/Master">{t("Menu.Master")}</Link>
+            <Link onClick={closeMenu} to="/education/PhD">{t("Menu.PhD")}</Link>
+            <Link onClick={closeMenu} to="/education/International">{t("Menu.International")}</Link>
           </div>
         </div>
         <div className="L1">
-          <Link to="/research">{t("Menu.Research")}</Link>
+          <Link onClick={closeMenu} to="/research">{t("Menu.Research")}</Link>
           <div className="L2">
           </div>
         </div>
         <div className="L1">
-          <Link to="/people">{t("Menu.People")}</Link>
+          <Link onClick={closeMenu} to="/people">{t("Menu.People")}</Link>
           <div className="L2">
-            <Link to="/people/All">{t("People.role.All")}</Link>
-            <Link to="/people/Faculty">{t("People.role.Faculty")}</Link>
-            <Link to="/people/OldFaculty">{t("People.role.OldFaculty")}</Link>
-            <Link to="/people/Staff">{t("People.role.Staff")}</Link>
-            <Link to="/people/OtherFaculty">{t("People.role.OtherFaculty")}</Link>
+            <Link onClick={closeMenu} to="/people/All">{t("People.role.All")}</Link>
+            <Link onClick={closeMenu} to="/people/Faculty">{t("People.role.Faculty")}</Link>
+            <Link onClick={closeMenu} to="/people/OldFaculty">{t("People.role.OldFaculty")}</Link>
+            <Link onClick={closeMenu} to="/people/Staff">{t("People.role.Staff")}</Link>
+            <Link onClick={closeMenu} to="/people/OtherFaculty">{t("People.role.OtherFaculty")}</Link>
           </div>
         </div>
         <div className="L1">
-          <Link to="/about">{t("Menu.About")}</Link>
+          <Link onClick={closeMenu} to="/about">{t("Menu.About")}</Link>
           <div className="L2">
           </div>
         </div>
