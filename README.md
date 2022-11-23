@@ -33,18 +33,25 @@ Receiving objects: 100% (451/451), 77.93 MiB | 6.73 MiB/s, done.
 Resolving deltas: 100% (130/130), done.
 ```
 
+# 남이 수정한 코드 추가로 받아오기 
+이미 클론한 상태에서 다른 사람이 수정본을 GitHub에 올렸다면, `git pull`을 실행해서 GitHub의 최신 버전을 가져온다. 
+```
+(base) takyeonlee@TAKui-MacBookPro idkaist_react % git pull
+remote: Enumerating objects: 15, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 15 (delta 4), reused 5 (delta 4), pack-reused 9
+Unpacking objects: 100% (15/15), 2.14 MiB | 1.83 MiB/s, done.
+From github.com:reflect9/idkaist-react
+ * [new branch]      gh-pages   -> origin/gh-pages
+Already up to date.
+```
+
 ## 라이브러리 설치
 - `cd idkaist-react`를 실행해서 클론한 폴더로 이동
 - `npm install`을 실행해서 라이브러리 설치 (실패시 `npm install --force`도 시도); 아래처럼 warning이 좀 나와도 끝까지 실행되면 ok
 ```
-npm WARN deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
-npm WARN deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
-npm WARN deprecated source-map-resolve@0.6.0: See https://github.com/lydell/source-map-resolve#deprecated
-npm WARN deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
-npm WARN deprecated core-js-pure@3.20.3: core-js-pure@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js-pure.
-npm WARN deprecated core-js@3.20.3: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
-
-added 1669 packages, and audited 1670 packages in 14s
+...  added 1669 packages, and audited 1670 packages in 14s
 
 221 packages are looking for funding
   run `npm fund` for details
@@ -75,78 +82,63 @@ webpack 5.66.0 compiled with 1 warning in 389 ms
 
 
 # 소스코드 수정후 공유하기 
-src폴더 안에 있는 소스코드를 수정한 뒤 공유할 준비가 되면, `git status`를 실행해서 바뀐 화일들 확인
+1. src폴더 안에 있는 소스코드를 수정한 뒤 공유할 준비가 되면, `git status`를 실행해서 바뀐 화일들 확인하기. 아래 예시에서는 `README.md`가 수정되었음. 
+```
+(base) takyeonlee@TAKui-MacBookPro idkaist_react % git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+2.  `git add .`를 실행해서 바뀐 화일들을 모두 새 commit에 등록할 준비. add를 실행하고 `git status`를 다시 실행하면, Changes to be committed에 수정된 모든 화일이 추가되었음. 
+```
+(base) takyeonlee@TAKui-MacBookPro idkaist_react % git add .
+(base) takyeonlee@TAKui-MacBookPro idkaist_react % git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   README.md
+```
+
+3. `git commit -m "커밋메시지"`를 실행해서 commit하기. 이 때 `커밋메시지`는 현재 버전에서 주로 수정된 부분을 설명하는 적당한 문구면 충분함.
+```
+(base) takyeonlee@TAKui-MacBookPro idkaist_react % git commit -m "readme added"
+[main 074f755] readme added
+ 1 file changed, 84 insertions(+), 2 deletions(-)
+ ```
+
+4. `git push`로 GitHub에 push하기; 에러가 나면 보통 메시지에서 시키는 대로 하면 해결됨. 
+```
+(base) takyeonlee@TAKui-MacBookPro idkaist_react % git push
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+```
+
+5. GitHub홈페이지의 idkaist-react페이지에서 내가 수정한 부분이 등록되었는지 확인하기
+- 보통 폴더나 화일 리스트에 내 커밋 메시지가 적혀있고 업데이트 된 시각이 "1 minute ago"같은 식으로 나오면 제대로 등록된 것임
+
+
+# 내 branch새로 만들어서 수정하기
+1. 다른 사람과 동시에 작업할 때는 `git checkout -b 내브랜치네임`으로 나만의 브랜치를 새로 파서 작업한 뒤에, merge를 부탁한다. 
+```
+(base) takyeonlee@TAKui-MacBookPro idkaist_react % git checkout -b my_fix
+Switched to a new branch 'my_fix'
+```
+2. `git branch`를 실행하면 존재하는 모든 branch와 현재 작업중인 것을 *표시와 함께 보여준다. 아래 예시에서는 세 브랜치 중 `my_fix`브랜치가 활성화되어있음.
+```
+(base) takyeonlee@TAKui-MacBookPro idkaist_react % git branch
+  main
+  master
+* my_fix
+```
+3. 이 상태에서 수정하고, (위에 설명한 방식대로) add, commit, push를 실행하면 됨. 
+4. GitHub홈페이지에서 특정 브랜치의 내용을 확인하려면, 아래 그림처럼 main을 누른 후, 원하는 브랜치 클릭하면 됨.  
+<img src='image_github.png' width="400px"/>
 
 
 
-
-
-
-
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
