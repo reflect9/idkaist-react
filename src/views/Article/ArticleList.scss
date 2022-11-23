@@ -1,0 +1,147 @@
+.ArticleList {
+    .PageContentWrapper {
+        display:flex;
+        flex-direction: row;
+        gap:40px;
+        position:relative;
+        margin: 40px auto 0;
+        // padding-bottom:220px;
+        max-width: 1100px;
+        line-height: 1.5em;
+        font-size: 14px;
+        color: #707070;
+        font-weight:400;
+        .filterUI {
+            flex:0 0 140px;
+            width:140px;
+            ul {
+                margin: 86px 0; padding:0;
+                a {
+                    text-decoration: none;
+                    li{
+                        margin:0 0 2px 0;
+                        background:#efefef;
+                        list-style-type: none;
+                        padding:10px 16px;
+                        font-family: 'Courier New', Courier, monospace;
+                        color:black;
+                        font-size:14px;
+                        text-transform: uppercase;
+                    }
+                }
+                a.active {
+                    vertical-align: middle;
+                    li {
+                        background:white;   
+                        padding:10px 0;
+                    }
+                    li::before {
+                        display:inline-block;
+                        content:"";
+                        width:21px;
+                        height:3px;
+                        margin-right:6px;
+                        background:red;
+                        vertical-align: middle;
+                    }
+                }
+                
+            }
+        }
+        .articleContainer {
+            flex:1 0 auto;
+            max-width:920px;
+            overflow: hidden;
+            .topbar {
+                display:flex;
+                flex-direction: row; align-items: center;
+                width:100%;
+                h2 {
+                    flex:1 0 auto;
+                    font-size: 32px;
+                    font-weight: 300;
+                }
+                .searchUI {
+                    display:inline-block;
+                    background: white;
+                    position: relative;
+                    width:200px;
+                    input {
+                        width: 100%;
+                        padding: 12px 60px 12px 12px;
+                        font-family: 'Courier New', Courier, monospace;
+                        font-style:italic;
+                        display: block;
+                        box-sizing:border-box;
+                        font-size:15px;
+                        border:none;
+                        background-color: #efefef;
+        
+                    }
+                    button {
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                        display: inline-block;
+                        font-size: 20px;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        padding: 8px 12px;
+                        color:#707070;
+                        z-index: 2;
+                        svg {
+                            vertical-align: middle;
+                        }
+                    }
+        
+                }
+            }
+            
+            ul {
+                margin:12px 0; padding:0;
+                li {
+                    width:100%;
+                    display:flex;
+                    flex-direction: row;
+                    border-top: 1px solid #ddd;
+                    align-items:center;
+                    color:#333;
+                    cursor:pointer;
+                    a{
+                        flex:1 1 auto;
+                        display:inline;
+                        color:inherit;
+                        text-decoration: none;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        margin:0; padding:12px;
+                        font-size:18px;
+                        font-weight:600;
+                        height:100%; 
+                    }
+                    .datetime {
+                        flex:0 0 100px;
+                        padding:16px; 
+                        text-align:right;
+                        font-family: 'Courier New', Courier, monospace;
+                        color:black;
+                    }
+                }
+                li:last-of-type {
+                    border-bottom: 1px solid #ddd;
+                }
+                li:hover {
+                    color:#aaa;
+                    .title {
+                        
+                    }
+                }
+            }
+
+        }
+
+        
+    }
+
+}

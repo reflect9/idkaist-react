@@ -93,5 +93,15 @@
         },
         "Mission": "The Department of Industrial Design at KAIST (ID KAIST) was founded in 1986, as the first design department established in a College of Engineering in the Republic of Korea. It started with an undergraduate degree, later followed by a Master (1991) and a Doctoral (2002) program. While it initially focused on design education and research rooted in product design, the scope of the department has gradually expanded to user interface design, interaction design, user experience design, service, and system design, society, and business innovation design, and Human-Computer Interaction (HCI). With the doctoral program achieving maturity in the mid-2000s, the department began to produce strong and unique research results published in renewed international venues. Today, ID KAIST is internationally recognized as a leading department in the field of HCI, interaction design, and user experience design. The education program of ID KAIST focuses on training designers and design researchers in order to solve important problems faced by the industry and society. This is achieved by encouraging innovative, integrated, and aesthetic methods of explorations, that aim to deeply understand people, technology, business, and society. Following this path, ID KAIST has held since 2016 the Design 3.0 Forum, an annual international event that explores new possibilities for design education and research in the era of the 4th Industrial Revolution. Looking ahead to the future, ID KAIST aims to create a positive and sustainable impact that enables a better life and future for the whole of mankind, through human-centered research and education.",
         "Address": "Bldg. N25, 291 Daehak-ro, Yuseong-gu, Daejeon 34141, Republic of Korea"
+    },
+    "ArticleList": {
+        "Type":{
+            "All":"All",
+            "Award":"Award",
+            "Event":"Event",
+            "News":"News",
+            "Notice":"Notice"
+        },
+        "NoArticleMsg": "There is no article of the type"
     }
 }

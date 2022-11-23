@@ -7,6 +7,8 @@ import Menu from '@components/Menu/Menu.js';
 import PageHeader from '@components/Page/PageHeader.js';
 import Grid from '@components/Grid/Grid.js';
 import FeaturedItem from '@components/FeaturedItem/FeaturedItem.js';
+
+import RetrieveArticles from 'data/firestore/retrieveArticles';
 import "./Home.scss";
 
 
@@ -19,6 +21,8 @@ let Home = ({ }) => {
 	const getRandomNumber = ()=>{
         return (Math.floor(Math.random()*10));
     }
+	RetrieveArticles();
+
 	// END OF 한영 변환
 	const [filterMode, setFilterMode] = useState("All");
 
@@ -33,8 +37,8 @@ let Home = ({ }) => {
 							<div className="dept_title_korean">한국과학기술원 산업디자인학과</div>
 							<div className="shortcuts_wrapper">
 								<ul className="shortcuts">
-									<li><Link to='/'>{t("Shortcuts.Graduate_Program")}</Link></li>
-									<li><Link to='/'>{t("Shortcuts.Research Labs")}</Link></li>
+									<li><Link to='/education/Master'>{t("Shortcuts.Graduate_Program")}</Link></li>
+									<li><Link to='/research'>{t("Shortcuts.Research Labs")}</Link></li>
 									<li><Link to='/'>{t("Shortcuts.Notice")}</Link></li>
 								</ul>
 								<div className="upcoming">

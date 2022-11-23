@@ -33,6 +33,8 @@ function App() {
           <Route path="/research/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section="Research"/>} />
           <Route path="/people/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section="People"/>} />
           <Route path="/about/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section="About"/>} />
+          <Route path="/articleList/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section=""/>} />
+          <Route path="/article/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section=""/>} />
         </Routes>
         
         <Routes>
@@ -49,14 +51,18 @@ function App() {
           <Route path="/education/international" element={<Education course='international'/>} /> */}
           <Route path="/research/*" element={<Research />} />
           <Route path="/about/*" element={<About />} />
+
           <Route path="/people/*" element={<People filter='All'/>} />
             <Route path="/people/All" element={<People filter='All'/>} />
             <Route path="/people/Faculty" element={<People  filter='Faculty'/>} />
             <Route path="/people/OldFaculty" element={<People  filter='OldFaculty'/>} />
             <Route path="/people/Staff" element={<People  filter='Staff'/>} />
             <Route path="/people/OtherFaculty" element={<People  filter='OtherFaculty'/>} />
-          <Route path="/article/:articleID" element={<Article />} />
-          <Route path="/articleList" element={<ArticleList />} />
+
+          <Route path="/articleList" element={<ArticleList ArticleType='All'/>} />
+            <Route path="/articleList/:articleType" element={<ArticleList/>} />
+          
+          <Route path="/article/:articleID" element={<Article/>} />
           {/* Add more routes here */}
         </Routes>
 

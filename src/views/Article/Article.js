@@ -4,63 +4,52 @@ import { useParams } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import ReactMarkdown from 'react-markdown'
 import { useTranslation } from 'react-i18next';
-
+import { Link } from "react-router-dom";
+import formatDate from '@utils/FormatDate';
 import Menu from '@components/Menu/Menu.js';
 import PageHeader from '@components/Page/PageHeader.js';
 
-import Articles from '@data/Articles';
+import FetchArticle from "data/firestore/fetchArticle";
 import "./Article.scss";
-
-
-/*
-노션으로 DB access하기 tutorials
-https://developers.notion.com/docs
-https://github.com/makenotion/notion-sdk-js
-*/
 
 function Article() {
     const { articleID } = useParams();
-    const [ md, setMd ] = useState();
+    const [ art, setArticle ] = useState();
     const { t } = useTranslation();
+    const atypes = ["All", "Award", "Event", "News", "Notice"];
 
-    let article = Articles[articleID];
+    useEffect(()=>{
+        FetchArticle(articleID, setArticle);
+    },[]);    
 
-    import("../../data/markdown/"+article.description)
-    .then(res => {
-        fetch(res.default)
-            .then(res => res.text())
-            .then(res => {
-                setMd(res);
-            })
-            .catch(err => console.log(err));
-    })
-    .catch(err => console.log(err));
-    
-    return (
-        <div className="Article">
-            <Menu />
-            <PageHeader />
-            <div className="PageContentWrapper">
-                <div className="image">
-                    {article.YouTube_URL ? 
-                        <iframe width="560" height="315" src={article.YouTube_URL} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        : <br/>}
-                </div>
-                <div className="title">
-                    {article.title}
-                </div>
-                <div className="metadata">
-                    {article.lab}
-                </div>
-                <div className="description">
-                    <ReactMarkdown>
-                        {md}
-                    </ReactMarkdown>
-
+    if (art) {
+        return (
+            <div className="Article">
+                <div className="PageContentWrapper">
+                    <div className="filterUI">
+                        <ul>
+                            {atypes.map((at)=>{
+                                return (<Link className={(art && art.type == at.toLowerCase()) ? "active" : ""} 
+                                    to={(at=="All")?'/articleList':'/articleList/'+at}
+                                    key={at}>
+                                    <li>{t("ArticleList.Type."+at)}</li></Link>);
+                            })}
+                        </ul>
+                    </div>
+                    <div className="articleContainer">
+                        <div className="datetime">{formatDate(art.datetime)}</div>
+                        <div className="title">{art.title}</div>
+                        <div className="content">
+                            <ReactMarkdown>
+                                {art.text}
+                            </ReactMarkdown>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    } else  return <div>No Article </div>
+    
 }
 
 export default Article;
