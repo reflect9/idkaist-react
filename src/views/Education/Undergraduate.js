@@ -49,10 +49,12 @@ function Undergraduate() {
                 </div>
                 <table className="courses">
                     <thead>
-                        <th>Semester</th>
-                        <td>Course</td>
-                        <td>Title</td>
-                        <td className="rightAlign">Portfolio</td>
+                        <tr>
+                            <th>Semester</th>
+                            <td>Course</td>
+                            <td>Title</td>
+                            <td className="rightAlign">Portfolio</td>
+                        </tr>
                     </thead>
                     <tbody>
                         {rows}
@@ -67,7 +69,7 @@ function Undergraduate() {
                 <div className="circle_year">*</div>
                 <div className="yearTitle">
                     <div className="yearRole">
-                    <div className="yearIndex">last</div>
+                        <div className="yearIndex">last</div>
                         {t("Education.Undergraduate.graduationResearch")}
                     </div>
                 </div>

@@ -11,6 +11,7 @@ import Research from './views/Research/Research.js';
 import People from './views/People/People.js';
 import Article from './views/Article/Article.js';
 import ArticleList from './views/Article/ArticleList.js';
+import ArticleEditor from './views/Article/ArticleEditor.js';
 
 import Footer from '@components/Footer/Footer.js';
 import ColorCodes from "@utils/ColorCodes.js";
@@ -35,6 +36,7 @@ function App() {
           <Route path="/about/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section="About"/>} />
           <Route path="/articleList/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section=""/>} />
           <Route path="/article/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section=""/>} />
+          <Route path="/articleEditor/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section=""/>} />
         </Routes>
         
         <Routes>
@@ -63,6 +65,8 @@ function App() {
             <Route path="/articleList/:articleType" element={<ArticleList/>} />
           
           <Route path="/article/:articleID" element={<Article/>} />
+
+          <Route path="/articleEditor" element={<ArticleEditor/>} />
           {/* Add more routes here */}
         </Routes>
 

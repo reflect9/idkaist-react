@@ -47,9 +47,9 @@ function Footer() {
                     <p className='small'>© IDKAIST. All Rights Reserved.</p>
                 </div>
                 <div className="right_column">
-                    <dlv className="languageSelector" onClick={toggleLanguage}>
+                    <div className="languageSelector" onClick={toggleLanguage}>
                         {i18n.language}
-                    </dlv>
+                    </div>
                     <div className="kaist_logo">
                         <a href='https://kaist.ac.kr'><img src={KAISTLogo} className="KAIST_Logo" /></a>
                     </div>
