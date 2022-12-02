@@ -12,8 +12,9 @@ import MDEditor from '@uiw/react-md-editor';
 
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "data/firestore/auth";
-import { ref, getStorage, uploadBytes } from "firebase/storage";
+import { ref, getStorage, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { Timestamp } from "firebase/firestore";
+import FetchArticle from "data/firestore/fetchArticle";
 import UploadArticle from "data/firestore/uploadArticle";
 import { v4 } from 'uuid';
 
@@ -21,28 +22,69 @@ import "./ArticleEditor.scss";
 
 
 function ArticleEditor() {
+    let { articleIDparam } = useParams();
+    const [articleID, setArticleID] = useState(null);
     const [imageUpload, setImageUpload] = useState(null);
-    const [uploadedImages, setUploadedImages] = useState([]);
+    const [progressPercent, setProgresspercent] = useState(null);
+    const [uploadedImages, setUploadedImages] = useState("");
     const [articleTitle, setArticleTitle] = useState("");
     const [articleType, setArticleType] = useState("Award");
+    const [articleCoverImage, setArticleCoverImage] = useState("");
     const [isFeatured, setIsFeatured] = useState(false);
     const [mdValue, setMdValue] = React.useState("**Hello world!!!**");
     const atypes = ["Award", "Event", "News", "Notice"];
 
+
+    useEffect(()=>{
+        if(typeof articleIDparam !== "undefined" && articleIDparam.length>0) {
+            console.log("Fetching Article "+ articleIDparam);
+            setArticleID(articleIDparam);
+            FetchArticle(articleID, (art)=>{
+                // Setting the article properties
+                setArticleTitle(art.title);
+                setArticleType(art.type);
+                setMdValue(art.text);
+            });
+        } else {
+            setArticleID(v4());
+            console.log("New Article: "+ articleID);
+        }
+    },[]);    
+    
     const uploadImage = () => {
         if (imageUpload == null) return;
         const app = initializeApp(firebaseConfig);
         const storage = getStorage();
         const filePath = "images/" + imageUpload.name + v4();
         const imageRef = ref(storage, filePath);
-        uploadBytes(imageRef, imageUpload).then(() => {
-            setUploadedImages(filePath);
-        });
+        const uploadTask = uploadBytesResumable(imageRef, imageUpload);
+        uploadTask.on("state_changed",
+            (snapshot) => {
+                const progress = Math.round((snapshot.bytesTransferred / snapshot. totalBytes) * 100);
+                setProgresspercent(progress);
+            },
+            (error) => {
+                alert(error);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL)=>{
+                    setUploadedImages(downloadURL);
+                });
+            }
+        )
+
+        // uploadBytes(imageRef, imageUpload).then(() => {
+        //     const uri = imageRef.getDownloadUrl();
+        //     console.log(uri);
+        //     setUploadedImages(uri);
+        // });
     };
     const uploadMD = () => {
-        UploadArticle({
+        UploadArticle(articleID, 
+            {
             "title":articleTitle,
             "type":articleType,
+            "coverImage":articleCoverImage,
             "text":mdValue,
             "featured":isFeatured,
             "datetime": Timestamp.now()
@@ -61,6 +103,14 @@ function ArticleEditor() {
                         onChange={setMdValue}
                     />
                     {/* <MDEditor.Markdown source={mdValue} style={{ whiteSpace: 'pre-wrap' }} /> */}
+                </div>
+
+                <label>Cover Image URI </label>
+                <input type="text" id="coverImage" onChange={(e)=>{setArticleCoverImage(e.target.value);}}/>
+                <div className="instruction">
+                    Cover images are used to represent the article in a list. 
+                    There's no size limit, but landscape images (i.e. width > height) will be the best.
+                    Please upload the image using the UI below and copy-paste its URI, or you can use any web URI. 
                 </div>
 
                 <label>Article Type</label>
@@ -94,7 +144,11 @@ function ArticleEditor() {
                         setImageUpload(e.target.files[0]);
                     }}
                 />
-                <button onClick={uploadImage}>Upload Image</button>
+                <button onClick={uploadImage}>Upload Image</button> 
+                <span> {progressPercent} </span>
+                <div className="uploadedImages">
+                    {uploadedImages}
+                </div>
             </div>
 
         </div>

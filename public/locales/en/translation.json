@@ -20,6 +20,7 @@
     },
     "Menu": {
         "Home": "Home",
+        "ArticleList": "All News",
         "Highlights": "Highlights",
         "Education": "Education",
         "Undergraduate": "Undergraduate",

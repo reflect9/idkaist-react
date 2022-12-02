@@ -102,32 +102,40 @@ let Home = ({ }) => {
 							</div>
 							{/* 작은 아이템들 */}
 							<div className="semi_featured">
-								<div className="item_details">
-									<div className="item_kind">NEWS</div>
-									<div className="item_title">주한미국대사관 산업디자인학과 방문 </div>
+								<div className="semi_featured_content">
+									<div className="item_details">
+										<div className="item_kind">NEWS</div>
+										<div className="item_title">주한미국대사관 산업디자인학과 방문 </div>
+									</div>
+									<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig=" + getRandomNumber()} /></div>	
 								</div>
-								<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig=" + getRandomNumber()} /></div>
 							</div>
 							<div className="semi_featured">
-								<div className="item_details">
-									<div className="item_kind">NEWS</div>
-									<div className="item_title">남택진 교수팀의 MCM(이동형 음압병동)이 부족한 음압병상 부족 사태 해결에 기여</div>
+								<div className="semi_featured_content">
+									<div className="item_details">
+										<div className="item_kind">NEWS</div>
+										<div className="item_title">남택진 교수팀의 MCM(이동형 음압병동)이 부족한 음압병상 부족 사태 해결에 기여</div>
+									</div>
+									<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig=" + getRandomNumber()} /></div>
 								</div>
-								<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig=" + getRandomNumber()} /></div>
 							</div>
 							<div className="semi_featured">
-								<div className="item_details">
-									<div className="item_kind">NEWS</div>
-									<div className="item_title">2019년 첫 수요 융합포럼 개최 </div>
+								<div className="semi_featured_content">
+									<div className="item_details">
+										<div className="item_kind">NEWS</div>
+										<div className="item_title">2019년 첫 수요 융합포럼 개최 </div>
+									</div>
+									<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig=" + getRandomNumber()} /></div>
 								</div>
-								<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig=" + getRandomNumber()} /></div>
 							</div>
 							<div className="semi_featured">
-								<div className="item_details">
-									<div className="item_kind">NEWS</div>
-									<div className="item_title">주한미국대사관 산업디자인과 방문</div>
+								<div className="semi_featured_content">
+									<div className="item_details">
+										<div className="item_kind">NEWS</div>
+										<div className="item_title">주한미국대사관 산업디자인과 방문</div>
+									</div>
+									<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig=" + getRandomNumber()} /></div>
 								</div>
-								<div className="item_image"><img src={"https://source.unsplash.com/random/180x180?sig=" + getRandomNumber()} /></div>
 							</div>
 						</div>
 					</div>

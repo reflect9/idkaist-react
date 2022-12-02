@@ -33,11 +33,29 @@ function Footer() {
 
                 </div>
                 <div className="shortcuts">
-                    <Link to="/home"><div className="sectionLink">{t("Menu.Home")}</div></Link>
-                    <Link to="/education"><div className="sectionLink">{t("Menu.Education")}</div></Link>
-                    <Link to="/research"><div className="sectionLink">{t("Menu.Research")}</div></Link>
-                    <Link to="/people"><div className="sectionLink">{t("Menu.People")}</div></Link>
-                    <Link to="/about"><div className="sectionLink">{t("Menu.About")}</div></Link>
+                    <div className="column">
+                        <Link to="/home" className="L1">{t("Menu.Home")}</Link>
+                        <Link to="/articleList" className="L1">{t("Menu.ArticleList")}</Link>
+                    </div>
+                    <div className="column">
+                        <Link to="/education" className="L1">{t("Menu.Education")}</Link>
+                        <Link to="/education/Undergraduate" className="L2">{t("Menu.Undergraduate")}</Link>
+                        <Link to="/education/Master" className="L2">{t("Menu.Master")}</Link>
+                        <Link to="/education/PhD" className="L2">{t("Menu.PhD")}</Link>
+                    </div>
+                    <div className="column">
+                        <Link to="/research" className="L1">{t("Menu.Research")}</Link>
+                    </div>
+                    <div className="column">
+                        <Link to="/people" className="L1">{t("Menu.People")}</Link>
+                        <Link to="/people/Faculty" className="L2">{t("People.role.Faculty")}</Link>
+                        <Link to="/people/OldFaculty" className="L2">{t("People.role.OldFaculty")}</Link>
+                        <Link to="/people/Staff" className="L2">{t("People.role.Staff")}</Link>
+                        <Link to="/people/OtherFaculty" className="L2">{t("People.role.OtherFaculty")}</Link>
+                    </div>
+                    <div className="column">
+                        <Link to="/about" className="L1">{t("Menu.About")}</Link>
+                    </div>
                 </div>
             </div>
         </div>

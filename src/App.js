@@ -67,6 +67,7 @@ function App() {
           <Route path="/article/:articleID" element={<Article/>} />
 
           <Route path="/articleEditor" element={<ArticleEditor/>} />
+          <Route path="/articleEditor/:articleIDparam" element={<ArticleEditor/>} />
           {/* Add more routes here */}
         </Routes>
 

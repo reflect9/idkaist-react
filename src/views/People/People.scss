@@ -67,8 +67,11 @@
             margin-bottom:40px;
             .person {
                 display:inline-block;
-                width:25%;  margin:0;
+                margin:0px 100px 0px 0;
                 box-sizing:border-box;
+            }
+            .person:nth-child(4n) {
+                margin:0px 0px 0px 0;
             }
         }
         .L_2x2 {
@@ -76,12 +79,31 @@
             width:50%; 
             vertical-align: top;
             margin-bottom:40px;
-            .person {
+            .person:nth-child(odd) {
                 display:inline-block;
-                width:50%; margin:0;
+                margin:0px 100px 0px 0;
+                box-sizing:border-box;
             }
+            .person:nth-child(even) {
+                display:inline-block;
+                margin:0px 0px 0px 0;
+                box-sizing:border-box;
+            }
+            
+        }
+        .L_2x2_right {
+            display:inline-flex;
+            box-sizing: border-box;
+            width:50%; 
+            vertical-align: top;
+            margin-bottom:40px;
+            overflow:hidden;
+            // padding-left:50px;
             img.banner {
-                width:100%; height:740px;
+                height:740px;
+                margin-left:50px;
+                width:100%;
+                box-sizing: border-box;
                 background-color: #eeeeee;
                 object-fit: cover;
             }
@@ -100,20 +122,43 @@
 
 
         .person {
-            width:250px; height:370px;
+            width:200px; height:370px;
             font-size:15px;
             // font-family: "Work sans", sans-serif;
             .photo {
-                margin-right:80px;
+                width:100%;
+                overflow:hidden;
                 img {
                     width:100%; 
+                    aspect-ratio: 1;
                     object-fit: cover;
-                    // filter:saturate(0);
+                    filter:saturate(0);
+                    transition: filter .5s;
+                }
+                img:hover {
+                    filter:none;
                 }
             }
-            .name {
-                font-size:20px;
-                font-weight:600;
+            .name_and_lab {
+                display:block;
+                .name {
+                    display:inline-block;
+                    font-size:20px;
+                    font-weight:600;
+                }
+                .lab {
+                    display:inline-block;
+                    margin-left:4px;
+                    font-size: 1.5em;
+                    color:#ccc;
+                    line-height: 1em;
+                    svg {
+                        vertical-align: bottom;
+                    }
+                }
+                .lab:hover {
+                    color:#F40019;
+                }
             }
             .position {
                 margin:5px 0 5px;

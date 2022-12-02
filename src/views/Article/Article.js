@@ -40,7 +40,7 @@ function Article() {
                         <div className="datetime">{formatDate(art.datetime)}</div>
                         <div className="title">{art.title}</div>
                         <div className="content">
-                            <ReactMarkdown>
+                            <ReactMarkdown escapeHtml={false}>
                                 {art.text}
                             </ReactMarkdown>
                         </div>
