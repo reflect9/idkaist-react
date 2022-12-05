@@ -108,6 +108,14 @@
                     align-items:center;
                     color:#333;
                     cursor:pointer;
+                    .isDeleted {
+                        background-color:#F40019;
+                        padding:2px 4px;
+                        color:white;
+                    }
+                    .invisible {
+                        text-decoration: line-through;
+                    }
                     a{
                         flex:1 1 auto;
                         display:inline;
@@ -126,6 +134,12 @@
                         text-align:right;
                         font-family: 'Courier New', Courier, monospace;
                         color:black;
+                    }
+                    .tools {
+                        font-size:1.5em;
+                        white-space: nowrap;
+                        svg { color:#aaa; }
+                        svg:hover { color:#F40019; }
                     }
                 }
                 li:last-of-type {

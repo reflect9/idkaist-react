@@ -1,4 +1,3 @@
-import _ from "lodash";
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -11,10 +10,10 @@ import Research from './views/Research/Research.js';
 import People from './views/People/People.js';
 import Article from './views/Article/Article.js';
 import ArticleList from './views/Article/ArticleList.js';
+import ArticleListEditor from './views/Article/ArticleListEditor.js';
 import ArticleEditor from './views/Article/ArticleEditor.js';
 
 import Footer from '@components/Footer/Footer.js';
-import ColorCodes from "@utils/ColorCodes.js";
 
 import PageHeader from '@components/Page/PageHeader.js';
 
@@ -66,6 +65,8 @@ function App() {
           
           <Route path="/article/:articleID" element={<Article/>} />
 
+
+          <Route path="/articleListEditor" element={<ArticleListEditor/>} />
           <Route path="/articleEditor" element={<ArticleEditor/>} />
           <Route path="/articleEditor/:articleIDparam" element={<ArticleEditor/>} />
           {/* Add more routes here */}

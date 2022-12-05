@@ -39,7 +39,7 @@ function ArticleEditor() {
         if(typeof articleIDparam !== "undefined" && articleIDparam.length>0) {
             console.log("Fetching Article "+ articleIDparam);
             setArticleID(articleIDparam);
-            FetchArticle(articleID, (art)=>{
+            FetchArticle(articleIDparam, (art)=>{
                 // Setting the article properties
                 setArticleTitle(art.title);
                 setArticleType(art.type);
@@ -80,20 +80,28 @@ function ArticleEditor() {
         // });
     };
     const uploadMD = () => {
-        UploadArticle(articleID, 
+        const feedbackHolder = document.querySelector("#uploadMDFeedback");
+        const callback = (msg)=>{
+            feedbackHolder.innerHTML = msg;
+        };
+        const instantFeedback = UploadArticle(articleID, 
             {
             "title":articleTitle,
             "type":articleType,
             "coverImage":articleCoverImage,
             "text":mdValue,
             "featured":isFeatured,
-            "datetime": Timestamp.now()
-        });
+            "datetime": Timestamp.now(),
+            "isDeleted": false
+        }, callback);
+        callback(instantFeedback);
     }
 
     return (<div className="ArticleEditor">
         <div className="PageContentWrapper">
             <div className="markdownUI">
+                <Link to="/articleListEditor">Back to Article List</Link> &nbsp;&nbsp;
+                <Link to={"/article/"+articleIDparam}>Back to Article</Link>
                 <label>Article Title</label>
                 <input type="text" id="articleTitle" onChange={(e)=>{setArticleTitle(e.target.value);}} value={articleTitle}/>
                 <label>Markdown Text</label>
@@ -101,6 +109,7 @@ function ArticleEditor() {
                     <MDEditor
                         value={mdValue}
                         onChange={setMdValue}
+                        height={500}
                     />
                     {/* <MDEditor.Markdown source={mdValue} style={{ whiteSpace: 'pre-wrap' }} /> */}
                 </div>
@@ -134,6 +143,7 @@ function ArticleEditor() {
                 <div className="saveButtonWrapper">
                     <button onClick={()=>{setMdValue("")}} >Reset</button>
                     <button onClick={uploadMD} >Save</button>
+                    <div id="uploadMDFeedback"></div>
                 </div>
             </div>
             <div className="imageUploadUI">

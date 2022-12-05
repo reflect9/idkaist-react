@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
-import  {BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { matchPath } from "react-router";
-import ReactDOM from 'react-dom';
+import React from 'react';
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { t } from '../../../node_modules/i18next/index';
 import "./Footer.scss";
 
 import KAISTLogo from '@assets/logo-kaist.png';
 import { ReactComponent as Idkaist } from '../Logo/idkaist-notext.svg';
 
 function Footer() {
-    const { t, i18n, ready } = useTranslation();
+    const { t, i18n } = useTranslation();
     const toggleLanguage = ()=>{
         console.log(i18n.language);
-        if(i18n.language=="en") i18n.changeLanguage("kr");
+        if(i18n.language==="en") i18n.changeLanguage("kr");
         else i18n.changeLanguage("en");
     }
     return (<div className="Footer" >
@@ -69,7 +65,7 @@ function Footer() {
                         {i18n.language}
                     </div>
                     <div className="kaist_logo">
-                        <a href='https://kaist.ac.kr'><img src={KAISTLogo} className="KAIST_Logo" /></a>
+                        <a href='https://kaist.ac.kr'><img src={KAISTLogo}  alt="kaist" className="KAIST_Logo" /></a>
                     </div>
                 </div>
                 

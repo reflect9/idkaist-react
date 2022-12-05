@@ -1,13 +1,9 @@
-import _ from "lodash";
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ReactDOM from 'react-dom';
 import ReactMarkdown from 'react-markdown'
 import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
 import formatDate from '@utils/FormatDate';
-import Menu from '@components/Menu/Menu.js';
-import PageHeader from '@components/Page/PageHeader.js';
 
 import FetchArticle from "data/firestore/fetchArticle";
 import "./Article.scss";
@@ -20,7 +16,7 @@ function Article() {
 
     useEffect(()=>{
         FetchArticle(articleID, setArticle);
-    },[]);    
+    },[articleID]);    
 
     if (art) {
         return (
@@ -29,8 +25,8 @@ function Article() {
                     <div className="filterUI">
                         <ul>
                             {atypes.map((at)=>{
-                                return (<Link className={(art && art.type == at.toLowerCase()) ? "active" : ""} 
-                                    to={(at=="All")?'/articleList':'/articleList/'+at}
+                                return (<Link className={(art && art.type === at.toLowerCase()) ? "active" : ""} 
+                                    to={(at==="All")?'/articleList':'/articleList/'+at}
                                     key={at}>
                                     <li>{t("ArticleList.Type."+at)}</li></Link>);
                             })}
@@ -40,7 +36,7 @@ function Article() {
                         <div className="datetime">{formatDate(art.datetime)}</div>
                         <div className="title">{art.title}</div>
                         <div className="content">
-                            <ReactMarkdown escapeHtml={false}>
+                            <ReactMarkdown>
                                 {art.text}
                             </ReactMarkdown>
                         </div>

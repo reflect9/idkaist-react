@@ -1,9 +1,9 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, setDoc, doc } from "firebase/firestore";
+import { getFirestore, setDoc, doc, updateDoc } from "firebase/firestore";
 import firebaseConfig from "data/firestore/auth";
 
 
-function UploadArticle(articleID, articleData, callback) {
+function UpdateArticle(articleID, propertiesToUpdate, callback) {
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     // Initialize Cloud Firestore and get a reference to the service
@@ -11,14 +11,14 @@ function UploadArticle(articleID, articleData, callback) {
     const docRef = doc(db, "articles", articleID); // Creating reference to the new/existing document
     // UPDATING SINGLE ARTICLE
     (async () => {
-        setDoc(docRef, articleData)
+        updateDoc(docRef, propertiesToUpdate)
         .then(docRef =>{
-            callback("Success");
+            if(callback) callback("Success");
         })
         .catch(error => {
-            callback("Failed:"+error);
+            if(callback) callback("Failed:"+error);
         });
     })();
-    return "Uploading Article";
+    return "Updating Article";
 }
-export default UploadArticle;
+export default UpdateArticle;

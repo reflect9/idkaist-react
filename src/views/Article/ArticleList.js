@@ -1,14 +1,8 @@
-import _ from "lodash";
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-import ReactMarkdown from 'react-markdown'
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import uuid from 'react-uuid';
 import formatDate from '@utils/FormatDate';
-import Menu from '@components/Menu/Menu.js';
-import PageHeader from '@components/Page/PageHeader.js';
 import { BiSearch } from "react-icons/bi";
 
 // import { initializeApp } from "firebase/app";
@@ -54,7 +48,9 @@ const ArticleList = () => {
                     </div>
 
                     <ul>
-                        {(articles.length>0) ? articles.map((art) => {
+                        {(articles.length>0) ? articles
+                        .filter(art=>{return art.data().isVisible;})
+                        .map((art) => {
                             // console.log(art.data());
                             return (<li key={art.id}>
                                 <Link to={'/article/'+art.id}>
