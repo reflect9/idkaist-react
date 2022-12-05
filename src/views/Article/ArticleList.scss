@@ -2,7 +2,7 @@
     .PageContentWrapper {
         display:flex;
         flex-direction: row;
-        gap:40px;
+        gap:60px;
         position:relative;
         margin: 40px auto 0;
         // padding-bottom:220px;
@@ -29,21 +29,26 @@
                         text-transform: uppercase;
                     }
                 }
+                a:hover {
+                li{
+                background-color:black; color:white;}
+                }
                 a.active {
                     vertical-align: middle;
                     li {
-                        background:white;   
+                        background:#f9f9f9;   
                         padding:10px 0;
                     }
                     li::before {
                         display:inline-block;
                         content:"";
-                        width:21px;
+                        width:22px;
                         height:3px;
-                        margin-right:6px;
+                        margin-right:10px;
                         background:red;
                         vertical-align: middle;
                     }
+                    li:hover {background-color:black; color:white;}
                 }
                 
             }
@@ -106,7 +111,7 @@
                     flex-direction: row;
                     border-top: 1px solid #ddd;
                     align-items:center;
-                    color:#333;
+                    color:#444;
                     cursor:pointer;
                     .isDeleted {
                         background-color:#F40019;
@@ -123,14 +128,15 @@
                         text-decoration: none;
                         white-space: nowrap;
                         overflow: hidden;
-                        margin:0; padding:12px;
+                        margin:0; 
+                        padding:12px 0px;
                         font-size:18px;
-                        font-weight:600;
+                        font-weight:700;
                         height:100%; 
                     }
                     .datetime {
                         flex:0 0 100px;
-                        padding:16px; 
+                        padding:16px 0px; 
                         text-align:right;
                         font-family: 'Courier New', Courier, monospace;
                         color:black;
@@ -146,7 +152,7 @@
                     border-bottom: 1px solid #ddd;
                 }
                 li:hover {
-                    color:#aaa;
+                    color:#666;
                     .title {
                         
                     }

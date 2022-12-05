@@ -48,27 +48,29 @@
                 .dept_title_thick {
                     // font-family: "Work Sans" sans-serif;
                     font-weight: 700;
-                    font-size: 5vw;
+                    font-size: 5.8vw;
+                    letter-spacing: 0.2rem;
                     color: inherit;
-                    line-height: 0.95em;
+                    line-height: 0.93em;
                     margin-bottom: 8px;
                 }
 
                 .dept_title_thin {
                     // font-family: "Work Sans" sans-serif;
                     font-weight: 500;
-                    font-size: 6vw;
+                    letter-spacing: -0.1rem;
+                    font-size: 5.8vw;
                     color: inherit;
-                    margin-bottom: 24px;
+                    margin-bottom: 20px;
                 }
 
 
                 .dept_title_korean {
                     // font-family: "Work Sans" sans-serif;
                     font-weight: 300;
-                    font-size: calc(10px + 1.0vw);
+                    font-size: 1.3vw;
                     margin-left: 0.5vw;
-                    color: inherit;
+                    color: #dfdfdf;
                     word-break: keep-all;
                     opacity: 1;
                 }
@@ -99,23 +101,22 @@
                         list-style-type: none;
                         margin: 0;
                         padding: 0;
-                        color: #aaa;
                         overflow-x: hidden;
                         display: flex;
                         flex-direction: column;
 
                         li {
                             flex: 1 0 auto;
-                            border-top: 1px solid #F40019;
+                            border-top: 0.1rem solid #6f0500;
                             padding-top: 16px;
                             padding-bottom: 16px;
                             position: relative;
 
                             a {
-                                color: inherit;
+                                color: #dfdfdf;
                                 text-decoration: none;
                                 font-family: 'Courier New', Courier, monospace;
-                                font-size: 20px;
+                                font-size: 18px;
                                 line-height: 2em;
                                 word-break: keep-all;
                                 overflow-x: hidden;
@@ -127,13 +128,13 @@
                                 position: absolute;
                                 right: 0px;
                                 color: #F40019;
-                                font-weight: 800;
+                                font-weight: 600;
                                 vertical-align: middle;
                             }
                         }
 
-                        li:last-child {
-                            border-bottom: 1px solid #F40019;
+                        li:first-child {
+                            border-top: 1px solid black;
                         }
                     }
 
@@ -142,22 +143,22 @@
                         flex: 1 1 50%;
                         display: flex;
                         flex-direction: column;
-                        border-top: 1px solid #F40019;
-                        border-bottom: 1px solid #F40019;
+                        padding-left:20px;
                         justify-content: space-between;
 
                         label {
                             flex: 0 0 auto;
-                            margin: 12px 0;
-                            color: #aaa;
+                            margin-top:24px;
+                            color: #dfdfdf;
                             text-decoration-color: #aaa;
                             font-family: 'Courier New', Courier, monospace;
-                            font-size: 16px;
+                            font-size: 18px;
                         }
 
                         .event_title {
                             flex: 0 0 auto;
-                            font-size: 24px;
+                            margin-top: 0px;
+                            font-size: 21px;
                             font-weight: 600;
                             color: #ccc;
                         }
@@ -165,10 +166,14 @@
                         a.learn_more {
                             flex: 0 0 auto;
                             font-family: 'Courier New', Courier, monospace;
-                            margin: 12px 0;
+                            margin: 22px 0;
                             font-size: 16px;
-                            color: #F40019;
+                            color: #FF0000;
+                            }
 
+                        a.learn_more:hover {
+                            text-decoration:underline;
+                            text-underline-offset: 0.25em;
                         }
                     }
                 }
@@ -194,11 +199,11 @@
 
                     .main_feature {
                         width: 100%;
-                        height: auto;
+                        height: 50%;
 
                         .item_image {
                             width: 100%;
-                            aspect-ratio: 9/5;
+                            aspect-ratio: 9/7;
                             background-color: #eee;
                             overflow: hidden;
 
@@ -220,14 +225,15 @@
                             }
 
                             .item_title {
-                                margin-top: 0px;
+                                margin-top: 4px;
                                 text-align: left;
                                 font-size: 21px;
+                                color:#000;
                                 font-weight: 700;
                             }
 
                             .item_desc {
-                                margin-top: 16px;
+                                margin-top: 10px;
                                 line-height: 1.5em;
                                 font-size: 14px;
                                 color: #707070;
@@ -243,21 +249,24 @@
 
                             a.read_more {
                                 display: inline-block;
-                                margin-top: 16px;
+                                margin-top: 10px;
                                 color: #F40019;
                                 font-family: 'Courier New', Courier, monospace;
                                 text-decoration: none;
+                            }
+                             a.read_more:hover {
+                                text-decoration: underline;
+                                text-underline-offset: 0.25rem;
                             }
                         }
                     }
 
                     .semi_featured {
                         width: 100%;
-                        border-top: 1px solid black;
+                        border-top: 1px solid #d0d0d0;
 
                         .semi_featured_content {
                             max-width: 950px;
-
                             display: flex;
                             flex-direction: row;
                             height: 200px;
@@ -273,14 +282,18 @@
 
                                 .item_kind {
                                     font-family: 'Courier New', Courier, monospace;
-                                    font-size: 12px;
+                                    font-size: 14px;
                                 }
 
                                 .item_title {
-                                    font-size: 18px;
-                                    font-weight: 600;
-                                    margin-top: 0px;
+                                    font-size: 21px;
+                                    font-weight: 700;
+                                    color:#000;
+                                    margin-top: 4px;
                                 }
+                                .item_title:hover {
+                             color:#333;
+                            }
                             }
 
                             .item_image {
@@ -288,6 +301,7 @@
                                 height: 100%;
                                 width: 160px;
                                 background-color: #ddd;
+                                margin-left:10px;
 
                                 img {
                                     width: 100%;
@@ -313,7 +327,6 @@
 
         .leftHalf {
             flex: 1 1 50%;
-            height: 100%;
             text-align: right;
             background: black;
 
@@ -339,14 +352,13 @@
                 display: inline-block;
                 width: 100%;
                 max-width: 950px;
-
                 .events {
                     background: black;
                     color: white;
+                    //height: 100%;
                     box-sizing: border-box;
                     padding: 40px;
 
-                    // height: 100%;
                     label {
                         display: block;
                         font-family: 'Courier New', Courier, monospace;
@@ -355,7 +367,7 @@
                     }
 
                     .event_item {
-                        border-top: 1px solid #F40019;
+                        border-top: 1px solid #6f0500;
                         padding: 21px 0;
 
                         .date {
@@ -367,6 +379,10 @@
                             margin-top: 4px;
                             margin-bottom: 4px;
                             font-size: 18px;
+                            font-weight: 700;
+                        }
+                        .title:hover {
+                            color:#bfbfbf;
                         }
 
                         .description {
@@ -395,7 +411,7 @@
         .Grid {
             .sectionTitle {
                 font-size: 32px;
-                color: #111;
+                color: #000;
                 margin: 40px;
                 font-weight: 600;
             }
@@ -456,10 +472,12 @@
 
                     .title {
                         font-size: 24px;
-                        font-weight: 700;
-
+                      color:#000;
+                        font-weight:700;
                     }
-
+                    .title:hover {
+                    color:#444;
+                    }
                     .description {
                         margin-top: 8px;
                         // padding:8
@@ -481,8 +499,13 @@
                         font-family: 'Courier New', Courier, monospace;
                         text-decoration: none;
                     }
+                     a.read_more:hover {
+                      text-decoration: underline;
+                      text-underline-offset: 0.25rem;
+                    }
                 }
             }
+            li:last-of-type {margin-bottom:50px;}
         }
     }
 

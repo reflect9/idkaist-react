@@ -49,7 +49,7 @@ const ArticleList = () => {
 
                     <ul>
                         {(articles.length>0) ? articles
-                        .filter(art=>{return art.data().isVisible;})
+                        .filter(art=>{return art.data().isVisible})
                         .map((art) => {
                             // console.log(art.data());
                             return (<li key={art.id}>

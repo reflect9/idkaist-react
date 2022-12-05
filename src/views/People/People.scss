@@ -1,4 +1,7 @@
 .People {
+            @media only screen and (max-width:999px) {
+                position: relative;
+            }
     h2 {
         padding-top: 30px;
         margin-top: 40px;
@@ -9,7 +12,7 @@
         width:100%;
         width:auto;
         z-index:1;
-        border-bottom: 1px solid #eaeaea;
+        border-top: 1px solid #eaeaea;
         ul {
             display:flex;
             flex-direction:row;
@@ -67,7 +70,7 @@
             margin-bottom:40px;
             .person {
                 display:inline-block;
-                margin:0px 100px 0px 0;
+                margin:0px 73px 0px 0px;
                 box-sizing:border-box;
             }
             .person:nth-child(4n) {
@@ -78,15 +81,14 @@
             display:inline-block;
             width:50%; 
             vertical-align: top;
-            margin-bottom:40px;
             .person:nth-child(odd) {
                 display:inline-block;
-                margin:0px 100px 0px 0;
+                margin:0px 73px 40px 0;
                 box-sizing:border-box;
             }
             .person:nth-child(even) {
                 display:inline-block;
-                margin:0px 0px 0px 0;
+                margin:0px 0px 40px 0;
                 box-sizing:border-box;
             }
             
@@ -100,7 +102,7 @@
             overflow:hidden;
             // padding-left:50px;
             img.banner {
-                height:740px;
+                height:630px;
                 margin-left:50px;
                 width:100%;
                 box-sizing: border-box;
@@ -114,6 +116,7 @@
             margin-bottom:40px;
             img.banner {
                 width:100%;
+                margin-bottom:40px;
                 height:300px;
                 object-fit: cover;
                 background-color: #eeeeee;
@@ -122,7 +125,7 @@
 
 
         .person {
-            width:200px; height:370px;
+            width:220px; height:370px;
             font-size:15px;
             // font-family: "Work sans", sans-serif;
             .photo {
@@ -144,15 +147,17 @@
                 .name {
                     display:inline-block;
                     font-size:20px;
+                    margin-top:5px;
                     font-weight:600;
                 }
                 .lab {
                     display:inline-block;
-                    margin-left:4px;
-                    font-size: 1.5em;
+                    margin-left:5px;
+                    font-size: 1.4em;
                     color:#ccc;
                     line-height: 1em;
                     svg {
+                    font-size:19px;
                         vertical-align: bottom;
                     }
                 }
@@ -163,12 +168,12 @@
             .position {
                 margin:5px 0 5px;
                 font-size:14px;
-                color: #333;
+                color: #9a9a9a;
             }
             .contact {
-                font-size:15px;
+                font-size:15.5px;
                 font-weight:500;
-                color:#888;
+                color:#707070;
             }
         }
     }
