@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -10,12 +11,10 @@ import { BsBoxArrowInUpLeft } from "react-icons/bs";
 
 import "./Research.scss";
 
-function Research() {
-  const [labID, setLabID] = useState();
+function Research({labID}) {
   const { t } = useTranslation();
-
   let pageContent;
-  if (typeof labID === "undefined") {
+  if (typeof labID === "undefined" || labID == "undefined") {
     pageContent = (
       <div className="PageContentWrapper">
         <h2>Research @ IDKAIST</h2>
@@ -25,10 +24,9 @@ function Research() {
   } else {
     pageContent = (
       <div className="PageContentWrapper">
-        <a className="BackToLabs" onClick={()=>{setLabID(undefined)}}>
-          {/* Back to Labs */}
+        {/* <a className="BackToLabs" onClick={()=>{setLabID(undefined)}}>
           <BsBoxArrowInUpLeft/>
-        </a>
+        </a> */}
         <Lab labID={labID}/>
       </div>
     );
@@ -41,7 +39,7 @@ function Research() {
       </div> */}
       {pageContent}
       
-      <LabList onChooseLab={setLabID} currentLab={labID}/>
+      <LabList currentLab={labID}/>
     </div>
   );
 }

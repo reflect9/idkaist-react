@@ -83,7 +83,7 @@ function About() {
             <div className="description">Paper publications from 2016 to 2021</div>
           </div>
           <div className="badge badge_black shadow-box">
-          <div className="title content">$5.5M</div>
+          <div className="title content">$5M</div>
             <div className="description">Research Grants Awarded in 202</div>
           </div>
           <div className="badge badge_red shadow-box">

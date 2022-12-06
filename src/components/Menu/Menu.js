@@ -1,3 +1,4 @@
+import _ from "lodash";
 import React, { useEffect, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation } from "react-i18next";
@@ -7,6 +8,7 @@ import { GrClose } from "react-icons/gr";
 import { BiSearch } from "react-icons/bi";
 import "./Menu.scss";
 
+import Labs from "@data/Labs";
 
 function Menu({ setIsMenuActive }) {
   const { t, i18n, ready } = useTranslation();
@@ -22,7 +24,6 @@ function Menu({ setIsMenuActive }) {
     console.log("close!");
     document.querySelector(".Menu").classList.add("small");
     setTimeout(()=>{
-      
       setIsMenuActive(false);
     },300);
   }
@@ -48,6 +49,9 @@ function Menu({ setIsMenuActive }) {
       </div>
       <div className="MenuItems">
         <div className="L1">
+          <Link onClick={closeMenu} to="/home">{t("Menu.Home")}</Link>
+        </div>
+        <div className="L1">
           <Link onClick={closeMenu} to="/education">{t("Menu.Education")}</Link>
           <div className="L2">
             <Link onClick={closeMenu} to="/education/Undergraduate">{t("Menu.Undergraduate")}</Link>
@@ -59,6 +63,11 @@ function Menu({ setIsMenuActive }) {
         <div className="L1">
           <Link onClick={closeMenu} to="/research">{t("Menu.Research")}</Link>
           <div className="L2">
+            {_.map(Labs, (labData,labID)=>{
+              return (
+                <Link onClick={closeMenu} to={"/research/"+labID}>{labData.lab_long}</Link> 
+              );
+            })}
           </div>
         </div>
         <div className="L1">

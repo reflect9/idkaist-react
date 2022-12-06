@@ -15,19 +15,19 @@
         background-color: black;
 
         .leftHalf {
-            flex: 1 1 50%;
             height: 100%;
             box-sizing: border-box;
 
             @media only screen and (min-width:1000px) {
+                flex: 1 1 50%;
                 position: sticky;
+                top: 80px;
             }
-
             @media only screen and (max-width:999px) {
                 position: relative;
             }
 
-            top: 80px;
+            
             // display:flex;
             // flex-direction: row;
             // justify-content: right;
@@ -68,7 +68,7 @@
                 .dept_title_korean {
                     // font-family: "Work Sans" sans-serif;
                     font-weight: 300;
-                    font-size: 1.3vw;
+                    font-size: calc(12px + 0.8vw);
                     margin-left: 0.5vw;
                     color: #dfdfdf;
                     word-break: keep-all;
@@ -80,7 +80,6 @@
                     bottom: 60px;
                     left: 60px;
                     right: 60px;
-
                     @media only screen and (min-width:1000px) {
                         display: flex;
                         flex-direction: row;
@@ -89,15 +88,63 @@
                     }
 
                     @media only screen and (max-width:999px) {
-                        display: flex;
-                        flex-direction: column-reverse;
-                        gap: 40px;
+                        
                         // align-items: stretch;
                     }
 
+                    div.upcoming {
+                        @media only screen and (min-width:1000px) {
+                            height: inherit;
+                            flex: 1 1 50%;
+                            padding-left:20px;
+                        }
+                        @media only screen and (max-width:999px) {
+                            width:100%;
+                            padding-left:0;
+                        }
+                        display: flex;
+                        flex-direction: column;
+                        
+                        justify-content: space-between;
+
+                        label {
+                            flex: 0 0 auto;
+                            margin-top:24px;
+                            color: #dfdfdf;
+                            text-decoration-color: #aaa;
+                            font-family: 'Courier New', Courier, monospace;
+                            font-size: 18px;
+                        }
+
+                        .event_title {
+                            flex: 0 0 auto;
+                            margin-top: 0px;
+                            font-size: 21px;
+                            font-weight: 600;
+                            color: #ccc;
+                        }
+
+                        a.learn_more {
+                            flex: 0 0 auto;
+                            font-family: 'Courier New', Courier, monospace;
+                            margin: 22px 0;
+                            font-size: 16px;
+                            color: #FF0000;
+                            }
+
+                        a.learn_more:hover {
+                            text-decoration:underline;
+                            text-underline-offset: 0.25em;
+                        }
+                    }
                     ul.shortcuts {
-                        flex: 1 1 50%;
-                        height: inherit;
+                        @media only screen and (min-width:1000px) {
+                            flex: 1 1 50%;
+                            height: inherit;
+                        }
+                        @media only screen and (max-width:999px) {
+                            display:block;
+                        }
                         list-style-type: none;
                         margin: 0;
                         padding: 0;
@@ -137,45 +184,6 @@
                             border-top: 1px solid black;
                         }
                     }
-
-                    div.upcoming {
-                        height: inherit;
-                        flex: 1 1 50%;
-                        display: flex;
-                        flex-direction: column;
-                        padding-left:20px;
-                        justify-content: space-between;
-
-                        label {
-                            flex: 0 0 auto;
-                            margin-top:24px;
-                            color: #dfdfdf;
-                            text-decoration-color: #aaa;
-                            font-family: 'Courier New', Courier, monospace;
-                            font-size: 18px;
-                        }
-
-                        .event_title {
-                            flex: 0 0 auto;
-                            margin-top: 0px;
-                            font-size: 21px;
-                            font-weight: 600;
-                            color: #ccc;
-                        }
-
-                        a.learn_more {
-                            flex: 0 0 auto;
-                            font-family: 'Courier New', Courier, monospace;
-                            margin: 22px 0;
-                            font-size: 16px;
-                            color: #FF0000;
-                            }
-
-                        a.learn_more:hover {
-                            text-decoration:underline;
-                            text-underline-offset: 0.25em;
-                        }
-                    }
                 }
             }
 
@@ -185,7 +193,6 @@
             background: #fff;
             flex: 1 1 50%;
             text-align: left;
-
             .contentArea {
                 text-align: left;
                 width: 100%;
@@ -320,13 +327,24 @@
 
     .section2 {
         width: 100%;
-        display: flex;
-        flex-direction: row;
+        @media only screen and (min-width:1000px) {
+            display: flex;
+            flex-direction: row;
+        }
+        @media only screen and (max-width:1000px) {
+            display: block;
+        }
         position: relative;
         background-color: black;
 
         .leftHalf {
-            flex: 1 1 50%;
+            @media only screen and (min-width:1000px) {
+                flex: 1 1 50%;
+            }
+            @media only screen and (max-width:1000px) {
+                width:100%;
+                display:block;
+            }
             text-align: right;
             background: black;
 
@@ -346,8 +364,16 @@
 
         .rightHalf {
             // background: #fff;
-            flex: 1 1 50%;
-
+            @media only screen and (min-width:1000px) {
+                flex: 1 1 50%;
+            }
+            @media only screen and (max-width:1000px) {
+                width:100%;
+                display:block;
+            }
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
             .contentArea {
                 display: inline-block;
                 width: 100%;

@@ -52,13 +52,15 @@
         }
     }
     .HeaderCenter {
-        flex: 0 0 auto;
-        display: flex;
+        flex: 1 1 auto;
+        @media only screen and (min-width:1000px) { display: flex;}
+        @media only screen and (max-width:1000px) { display: none;}
+        
         flex-direction: row;
         padding-left: 80px;
         justify-content: center;
         align-items: center;
-        gap:30px;
+        gap:50px;
         // font-family: 'Work Sans', sans-serif;
         .sectionLink:hover {
             border-top:4px solid #F40019;
@@ -70,21 +72,18 @@
             border-top:4px solid transparent;
             div {
                 display: inline-block;
-                
                 padding-left:8px;  padding-right:8px;
                 height:100%;
                 color:inherit;
                 text-decoration: none;
                 line-height:78px;  // For Vertical-Middle layout
-                @media (min-width: 750px) {
-                    font-size: 16px;
-                }
-                @media (max-width: 750px) {
-                    font-size: 12px;
-                }
                 font-weight: 400;
                 font-size:18px;
                 color: #000;    
+            }
+            div.wide-space {
+                @media only screen and (min-width:1200px) { letter-spacing: 12px; }
+                @media only screen and (max-width:1200px) { letter-spacing: 0px; padding:0;}
             }
         }
         .sectionLink.active {

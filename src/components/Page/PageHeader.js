@@ -25,10 +25,14 @@ let PageHeader = ({ setIsMenuActive, Section }) => {
                     <Link to='/home'><Idkaist /></Link>
                 </div>
                 <div className="HeaderCenter">
-                    <Link className={Section == "Education" ? "sectionLink active" : "sectionLink"} to='/education'><div >{t("Menu.Education")}</div></Link>
-                    <Link className={Section == "Research" ? "sectionLink active" : "sectionLink"} to='/research'><div>{t("Menu.Research")}</div></Link>
-                    <Link className={Section == "People" ? "sectionLink active" : "sectionLink"} to='/people'><div>{t("Menu.People")}</div></Link>
-                    <Link className={Section == "About" ? "sectionLink active" : "sectionLink"} to='/about'><div>{t("Menu.About")}</div></Link>
+                    <Link className={Section == "Education" ? "sectionLink active" : "sectionLink"} to='/education'>
+                        <div className={i18n.language=="kr"?"wide-space":""}>{t("Menu.Education")}</div></Link>
+                    <Link className={Section == "Research" ? "sectionLink active" : "sectionLink"} to='/research'>
+                        <div className={i18n.language=="kr"?"wide-space":""}>{t("Menu.Research")}</div></Link>
+                    <Link className={Section == "People" ? "sectionLink active" : "sectionLink"} to='/people'>
+                        <div className={i18n.language=="kr"?"wide-space":""}>{t("Menu.People")}</div></Link>
+                    <Link className={Section == "About" ? "sectionLink active" : "sectionLink"} to='/about'>
+                        <div className={i18n.language=="kr"?"wide-space":""}>{t("Menu.About")}</div></Link>
                     {/* <form>
                         <input type="search" placeholder="Search..."/>
                         <button type="submit">

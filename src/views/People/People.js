@@ -27,13 +27,15 @@ function People({filter}) {
           <div className="name">
             {i18n.language=="kr"?p.name_kr:p.name_en}
           </div>
+        </div>
+        <div className="position">
+          {t("People.position."+p.position)}
           {p.lab_url ? (
             <div className="lab" onClick={()=>{window.open(p.lab_url);}}>
               <MdHome/>
           </div>
           ):null}
-        </div>
-        <div className="position">{t("People.position."+p.position)}</div> 
+        </div> 
         <div className="contact">
           {p.email} <br/> {p.phone} <br/> {p.office}
         </div>
@@ -46,34 +48,7 @@ function People({filter}) {
       return renderPerson(p);
     }
   }).filter(e=>e);
-  // composing Layout including banners
-  let withBanner = [];
-  if (peopleEl.length>0) { 
-    withBanner.push(<div className="L_1x4">
-      {peopleEl.slice(0,4)}
-    </div>);
-  } 
-  if (peopleEl.length>4) {
-    withBanner.push(<div className="L_2x2">
-      {peopleEl.slice(4,8)}
-    </div>);
-    withBanner.push(<div className="L_2x2_right">
-      <img className="banner" src="https://source.unsplash.com/random/600x800"/>
-    </div>);
-  }
-  if (peopleEl.length>12) {
-    withBanner.push(<div className="L_1x4">
-      {peopleEl.slice(8,12)}
-    </div>);
-    withBanner.push(<div className="L_2x4">
-      <img className="banner" src="https://source.unsplash.com/random/1100x600"/>
-    </div>);
-    withBanner.push(<div className="L_1x4">
-      {peopleEl.slice(12,100)}
-    </div>);
-  }
-
-
+  
   return (
     <div className="People">
       <div className="tabNav">
@@ -87,7 +62,7 @@ function People({filter}) {
       <div className="PageContentWrapper">
         <div className="PageContent">
           <div className="PeopleViewer">
-            {withBanner}
+            {peopleEl}
           </div>
         </div>
       </div>

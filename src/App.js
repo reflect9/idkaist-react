@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import _ from "lodash";
 
 import Menu from './components/Menu/Menu.js';
 
@@ -13,6 +14,7 @@ import ArticleList from './views/Article/ArticleList.js';
 import ArticleListEditor from './views/Article/ArticleListEditor.js';
 import ArticleEditor from './views/Article/ArticleEditor.js';
 
+import Labs from "@data/Labs";
 import Footer from '@components/Footer/Footer.js';
 
 import PageHeader from '@components/Page/PageHeader.js';
@@ -47,13 +49,17 @@ function App() {
             <Route path="/education/Master" element={<Education course='Master'/>} />
             <Route path="/education/PhD" element={<Education course='PhD'/>} />
             <Route path="/education/International" element={<Education course='International'/>} />
-          {/* <Route path="/education/master" element={<Education course='master'/>} />
-          <Route path="/education/phd" element={<Education course='phd'/>} />
-          <Route path="/education/international" element={<Education course='international'/>} /> */}
-          <Route path="/research/*" element={<Research />} />
+          
+          <Route path="/research" element={<Research />} />
+          {_.map(Labs, (labData,labID)=>{
+            return (
+              <Route path={"/research/"+labID} element={<Research labID={labID}/>} />
+            );
+          })}
+
           <Route path="/about/*" element={<About />} />
 
-          <Route path="/people/*" element={<People filter='All'/>} />
+          <Route path="/people" element={<People filter='All'/>} />
             <Route path="/people/All" element={<People filter='All'/>} />
             <Route path="/people/Faculty" element={<People  filter='Faculty'/>} />
             <Route path="/people/OldFaculty" element={<People  filter='OldFaculty'/>} />
@@ -74,7 +80,8 @@ function App() {
 
         {/* Routes for rendering footer (or skip for some pages) */}
         <Routes>
-          <Route path="/research" element={<div/>} />
+          <Route path="/research" element={<Footer />} />
+          <Route path="/research/*" element={<div/>} />
           <Route path="*" element={<Footer />} />
         </Routes>
       </div>

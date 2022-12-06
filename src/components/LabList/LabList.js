@@ -1,27 +1,24 @@
 import React, {useRef} from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
 import _ from "lodash";
 import "./LabList.scss";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 import Labs from "@data/Labs";
 
-function LabList({ onChooseLab, currentLab }) {
+function LabList({ currentLab }) {
     const { t } = useTranslation();
     const listBox = useRef(null);
-    const onClickLab = (lc) => {
-        if (lc == currentLab) onChooseLab(undefined);
-        else onChooseLab(lc);
-    };
     const Labs_LI = _.map(Labs, (labData, labCode) => {
-        // console.log(labCode);
         const img = require("../../assets/labs/logo/" + labData.lab_logo);
-        return <li onClick={() => { onClickLab(labCode) }} className={(currentLab == labCode) ? "active" : ""} key={labCode}>
-            {/* <div className="title">{labData.lab}</div> */}
-            <div className="thumbnail">
-                <img src={img} />
-            </div>
+        return <li className={(currentLab == labCode) ? "active" : ""} key={labCode} labCode={labCode}>
+            <Link to={(currentLab==labCode)?"/research":"/research/"+labCode}>
+                <div className="thumbnail">
+                    <img src={img} />
+                </div>
+            </Link>
         </li>
     });
     let listClass = "";
@@ -30,7 +27,6 @@ function LabList({ onChooseLab, currentLab }) {
     }
     
     return <div className={"LabList " + listClass}>
-        {/* <div className="scrollX"> <CgArrowLeft/> {t("Research.LabList.scrollMessage")} <CgArrowRight/> </div> */}
         <div className="leftArrow" onClick={()=>{listBox.current.scrollLeft -= 500;}}> <MdArrowBackIos /> </div>
         <ul ref={listBox}>
             {Labs_LI}
