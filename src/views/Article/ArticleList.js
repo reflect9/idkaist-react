@@ -15,12 +15,13 @@ const ArticleList = () => {
     const { articleType } = useParams();
     const { t, i18n, ready } = useTranslation();
     const [articles, setArticles] = useState([]);
-    const atypes = ["All", "Award", "Event", "News", "Notice"];
+    const atypes = ["All", "Award", "Event", "News", "Notice","Banner"];
     // RetrieveArticles(articleType, setArticles);
     // Fetching articles only once (when the component got loaded)
     useEffect(() => {
-        RetrieveArticles(articleType, setArticles);
-        // console.log(articles);
+        let allowedArticleTypes = (articleType=="All")?["Award","Event","News","Notice","Banner"]:[articleType]; 
+        RetrieveArticles(allowedArticleTypes, [true, false], 500, setArticles);
+        console.log(articles);
     },[articleType]);
 
     const typeLinks = atypes.map( (at) => {
@@ -53,8 +54,12 @@ const ArticleList = () => {
                         .map((art) => {
                             // console.log(art.data());
                             return (<li key={art.id}>
+                                <div className="type">{art.data().type}</div>
                                 <Link to={'/article/'+art.id}>
-                                    <div className="title">{art.data().title} </div>    
+                                    <div className="title">
+                                        {art.data().title} 
+                                        {art.data().featured ? (<span className="featured_mark">FEATURED</span>):""}
+                                    </div>    
                                 </Link>
                                 <div className="datetime">{formatDate(art.data().datetime)}</div>
                             </li>);

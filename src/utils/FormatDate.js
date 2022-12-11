@@ -1,5 +1,6 @@
-export default (date)=>{
-    var d = date.toDate();
+// Converting firestore timestamp to string
+export default (timestamp)=>{
+    var d = timestamp.toDate();
     var month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
         year = d.getFullYear();

@@ -101,8 +101,9 @@
             "Award":"Award",
             "Event":"Event",
             "News":"News",
-            "Notice":"Notice"
+            "Notice":"Notice",
+            "Banner": "Banner"
         },
-        "NoArticleMsg": "There is no article of the type"
+        "NoArticleMsg": "Loading... Or, there is no article of the type"
     }
 }

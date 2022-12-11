@@ -15,9 +15,9 @@ const ArticleListEditor = () => {
     const { articleType } = useParams();
     const { t } = useTranslation();
     const [articles, setArticles] = useState([]);
-    const atypes = ["All", "Award", "Event", "News", "Notice"];
+    const atypes = ["All", "Award", "Event", "News", "Notice", "Banner"];
     useEffect(() => {
-        RetrieveArticles(articleType, setArticles);
+        RetrieveArticles(articleType, null, 500, setArticles);
     },[articleType]);
 
     const setVisibility = (articleID, newValue)=>{
@@ -26,13 +26,13 @@ const ArticleListEditor = () => {
             {
                 "isVisible": newValue
             },
-            ()=>{RetrieveArticles(articleType, setArticles)}
+            ()=>{RetrieveArticles(articleType, null, 500, setArticles)}
         );
     }
     const typeLinks = atypes.map( (at) => {
-        return (<Link className={articleType == at ? "active" : ""} 
-            to={(at=="All")?'/articleList':'/articleList/'+at}>
-            <li >{t("ArticleList.Type."+at)}</li></Link>);
+        return (<Link className={articleType == at ? "active" : ""} key={at}
+            to={(at=="All")?'/articleListEditor':'/articleListEditor/'+at}>
+            <li key={at}>{t("ArticleList.Type."+at)}</li></Link>);
     });                 
     return (
         <div className="ArticleList">
@@ -44,8 +44,9 @@ const ArticleListEditor = () => {
                 </div>
                 <div className="articleContainer">
                     <div className="topbar">
-                        <h2>All Articles</h2>
-                        <div className="searchUI">
+                        <h2>{articleType} Articles</h2>
+                        <Link to="/articleEditor"><button className="new_article">새 글 쓰기</button></Link>
+                        <div className="searchUI">    
                             <input type="text" className="input" placeholder="Search" disabled/>
                             <button type="submit">
                                 <BiSearch />
@@ -57,8 +58,11 @@ const ArticleListEditor = () => {
                         {(articles.length>0) ? articles.map((art) => {
                             // console.log(art.data());
                             return (<li key={art.id}>
+                                <div className="type">{art.data().type}</div>
                                 <Link to={'/article/'+art.id}>
-                                    <div className={art.data().isVisible ? "title":"title invisible"}>{art.data().title} </div>    
+                                    <div className={art.data().isVisible ? "title":"title invisible"}>{art.data().title} 
+                                    {art.data().featured ? (<span className="featured_mark">FEATURED</span>):""}
+                                    </div>    
                                 </Link>
                                 <div className="datetime">{formatDate(art.data().datetime)}</div>
                                 <div className="tools">

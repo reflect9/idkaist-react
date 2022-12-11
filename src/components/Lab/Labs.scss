@@ -16,8 +16,9 @@
         .LabTitle {
             font-weight: 700;
             font-size: 30px;
+            margin-right: 40px;
             line-height:1.2em;
-            color:black;
+            color:#333;
         }
         .LabTitleShort {
             margin-top:20px;
@@ -32,6 +33,7 @@
 
         .description {
             margin-top:20px;
+            margin-right:40px;
             line-height: 1.5em;
             font-size: 14px;
             color: #707070;
@@ -66,6 +68,10 @@
                 text-decoration: none;
                 font-size:16px;
             } 
+            a:hover {
+           text-decoration:underline;
+           text-underline-offset: 0.25em;
+            }
             // a:visited { color:#F40019; } 
         }
 
@@ -100,37 +106,40 @@
     .projects {
         flex:1 1 45%;
         padding-top: 12px;
+
         // height: 100%;
         .imageSelector {
-            margin-bottom: 2px;
-            height: 16px;
+            margin-bottom: 0px;
+            margin-top:15px;
+            float: right;
             .selectorButtonWrapper {
                 display: inline-block;
                 position:relative;
-                width: 18px;
-                height:18px;
+                width: 12px;
                 margin-right: 6px;
                 background:white;
                 .selectorButton {
                     position:absolute;
-                    bottom:0; left:0; right:0;
+                    bottom:0; left:0px; right:0;
                     height: 2px;
-                    background: black;
+                    background: #999;
                     vertical-align: baseline;
                 }
             }
             .selectorButtonWrapper:hover, .selectorButtonWrapper.active {
                 .selectorButton {
-                    height:16px;
+                    height:12px;
                 }
             }
         }
         img {
             width:100%;
+            background-color:#dfdfdf;
+            height:400px;
         }
         .imageDescription {
             font-family: 'Courier New', Courier, monospace;
-            font-size:16px;
+            font-size:14px;
             color:black;
         }
         // ul {

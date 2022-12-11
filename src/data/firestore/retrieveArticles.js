@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, where } from "firebase/firestore";
+import { getFirestore, collection, addDoc, orderBy, Direction, query, getDocs, doc, limit, deleteDoc, where} from "firebase/firestore";
 import firebaseConfig from "data/firestore/auth";
 
-function RetrieveArticles(articleType, callback) {
+function RetrieveArticles(allowedArticleTypes, isFeatured, doclimit, callback) {
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     // Initialize Cloud Firestore and get a reference to the service
@@ -11,16 +11,30 @@ function RetrieveArticles(articleType, callback) {
     (async () => {
         const articlesRef = collection(db, "articles");
         let querySnapshot;
-        querySnapshot = await getDocs(articlesRef);
-        // console.log(articleType);
-        if(articleType=="" || articleType=="All" || typeof articleType === "undefined") callback(querySnapshot.docs);
-        else {
-            let filteredSnapshot = querySnapshot.docs.filter(d=>{
-                // console.log(d.data().type + " ?= "+ articleType.toLowerCase());
-                return d.data().type==articleType.toLowerCase();
-            }); 
-            callback(filteredSnapshot);
+        if(isFeatured) {
+            querySnapshot = await getDocs(query(articlesRef, where("type", "in", allowedArticleTypes)
+            , where("featured", "==", isFeatured), orderBy('datetime', 'desc'), limit(doclimit)));    
+            callback(querySnapshot.docs);    
+        } else {
+            querySnapshot = await getDocs(query(articlesRef, where("type", "in", allowedArticleTypes)
+            , orderBy('datetime', 'desc'), limit(doclimit)));    
+            callback(querySnapshot.docs);    
         }
+        // querySnapshot = await getDocs(query(articlesRef, where("type", "in", allowedArticleTypes)
+        //     , where("featured", "in", allowedFeaturedFlags), orderBy('datetime', 'desc'), limit(doclimit)));    
+        // callback(querySnapshot.docs);
+            // } else {
+        //     querySnapshot = await getDocs(query(articlesRef, orderBy('datetime', 'desc'), where("featured","==", isFeatured), limit(doclimit)));
+        // }
+        // console.log(articleType);
+        // if(articleType=="" || articleType=="All" || typeof articleType === "undefined") callback(querySnapshot.docs);
+        // else {
+        //     let filteredSnapshot = querySnapshot.docs.filter(d=>{
+        //         console.log(d.data().type.toLowerCase() + " ?= "+ articleType.toLowerCase());
+        //         return d.data().type.toLowerCase()==articleType.toLowerCase();
+        //     }); 
+        //     callback(filteredSnapshot);
+        // }
     })();
     return (
         <div>Retrieving Articles</div>

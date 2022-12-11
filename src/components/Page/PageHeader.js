@@ -7,12 +7,12 @@ import { useTranslation } from "react-i18next";
 import { FiSearch, FiUser } from "react-icons/fi";
 import { AiOutlineMenu } from "react-icons/ai";
 
-import KAISTLogo from '@assets/logo-kaist.png';
+import KAISTLogo from '@assets/logo-kaist_gray.png';
 import { ReactComponent as Idkaist } from '../Logo/idkaist.svg';
 
 import "./PageHeader.scss";
 
-let PageHeader = ({ setIsMenuActive, Section }) => {
+let PageHeader = ({ toggleIsMenuActive, Section }) => {
     const { t, i18n, ready } = useTranslation();
     const changeLanguage = (m) => {
         i18n.changeLanguage(m);
@@ -51,7 +51,18 @@ let PageHeader = ({ setIsMenuActive, Section }) => {
                         onClick={() => changeLanguage("en")}>{t('Locale.En')}</span>
                 </div> */}
                     <a href='https://kaist.ac.kr'><img src={KAISTLogo} className="KAIST_Logo" /></a>
-                    <AiOutlineMenu onClick={() => { setIsMenuActive(true) }} />
+                    <AiOutlineMenu onClick={()=>{
+                        let menu = document.querySelector(".Menu"); 
+                        if(menu) {
+                            menu.classList.toggle("small");
+                            setTimeout(()=>{
+                                toggleIsMenuActive();
+                            },300);
+                        }else {
+                            toggleIsMenuActive();
+                        }
+                        
+                    }} />
                 </div>
             </div>
         </div>

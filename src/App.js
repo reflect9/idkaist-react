@@ -25,19 +25,23 @@ import './App.scss';
 
 function App() {
   const [isMenuActive, setIsMenuActive] = useState(false);
+  const toggleIsMenuActive = ()=>{
+    setIsMenuActive(!isMenuActive);
+  }
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<PageHeader setIsMenuActive={setIsMenuActive} Section="" />} />
-          <Route path="/home" element={<PageHeader setIsMenuActive={setIsMenuActive} Section=""/>} />
-          <Route path="/education/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section="Education"/>} />
-          <Route path="/research/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section="Research"/>} />
-          <Route path="/people/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section="People"/>} />
-          <Route path="/about/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section="About"/>} />
-          <Route path="/articleList/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section=""/>} />
-          <Route path="/article/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section=""/>} />
-          <Route path="/articleEditor/*" element={<PageHeader setIsMenuActive={setIsMenuActive} Section=""/>} />
+          <Route path="/" element={<PageHeader toggleIsMenuActive={toggleIsMenuActive} Section="" />} />
+          <Route path="/home" element={<PageHeader toggleIsMenuActive={toggleIsMenuActive} Section=""/>} />
+          <Route path="/education/*" element={<PageHeader toggleIsMenuActive={toggleIsMenuActive} Section="Education"/>} />
+          <Route path="/research/*" element={<PageHeader toggleIsMenuActive={toggleIsMenuActive} Section="Research"/>} />
+          <Route path="/people/*" element={<PageHeader toggleIsMenuActive={toggleIsMenuActive} Section="People"/>} />
+          <Route path="/about/*" element={<PageHeader toggleIsMenuActive={toggleIsMenuActive} Section="About"/>} />
+          <Route path="/articleList/*" element={<PageHeader toggleIsMenuActive={toggleIsMenuActive} Section=""/>} />
+          <Route path="/article/*" element={<PageHeader toggleIsMenuActive={toggleIsMenuActive} Section=""/>} />
+          <Route path="/articleEditor/*" element={<PageHeader toggleIsMenuActive={toggleIsMenuActive} Section=""/>} />
+          <Route path="*" element={<div></div>} />
         </Routes>
         
         <Routes>
@@ -71,8 +75,9 @@ function App() {
           
           <Route path="/article/:articleID" element={<Article/>} />
 
+          <Route path="/articleListEditor" element={<ArticleListEditor ArticleType='All'/>} />
+            <Route path="/articleListEditor/:articleType" element={<ArticleListEditor/>} />
 
-          <Route path="/articleListEditor" element={<ArticleListEditor/>} />
           <Route path="/articleEditor" element={<ArticleEditor/>} />
           <Route path="/articleEditor/:articleIDparam" element={<ArticleEditor/>} />
           {/* Add more routes here */}
@@ -86,7 +91,12 @@ function App() {
         </Routes>
       </div>
       {isMenuActive ? (<Menu setIsMenuActive={setIsMenuActive}/>):null}
-      {isMenuActive ? (<div className="backdrop" onClick={()=>{setIsMenuActive(false)}}></div>): null}
+      {isMenuActive ? (<div className="backdrop" onClick={()=>{
+        document.querySelector(".Menu").classList.add("small");
+        setTimeout(()=>{
+          setIsMenuActive(false);
+        },300);
+      }}></div>): null}
     </Router>
   );
 }

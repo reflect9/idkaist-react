@@ -33,7 +33,7 @@ function Research({labID}) {
   }
 
   return (
-    <div className="Research">
+    <div className="Research stretching">
       {/* <div className="coverImage">
         <img src="images/department/building.jpg" />
       </div> */}

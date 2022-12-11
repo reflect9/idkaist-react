@@ -33,6 +33,15 @@ function Article() {
                         </ul>
                     </div>
                     <div className="articleContainer">
+                        <div className="coverImage">
+                            <img src={art.coverImage}
+                            style={{
+                                    background: `url('${process.env.PUBLIC_URL}/images/giphy.gif')`,
+                                    'backgroundRepeat': 'no-repeat'
+
+                                }}
+                            />
+                        </div>
                         <div className="datetime">{formatDate(art.datetime)}</div>
                         <div className="title">{art.title}</div>
                         <div className="content">

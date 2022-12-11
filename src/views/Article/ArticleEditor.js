@@ -7,8 +7,10 @@ import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
 import Menu from '@components/Menu/Menu.js';
 import PageHeader from '@components/Page/PageHeader.js';
-
+import formatDate from '@utils/FormatDate';
 import MDEditor from '@uiw/react-md-editor';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "data/firestore/auth";
@@ -28,11 +30,19 @@ function ArticleEditor() {
     const [progressPercent, setProgresspercent] = useState(null);
     const [uploadedImages, setUploadedImages] = useState("");
     const [articleTitle, setArticleTitle] = useState("");
+    const [articleDatetime, setArticleDatetime] = useState(new Date());
+    const [articleDatetimeEnd, setArticleDatetimeEnd] = useState(null);
     const [articleType, setArticleType] = useState("Award");
     const [articleCoverImage, setArticleCoverImage] = useState("");
     const [isFeatured, setIsFeatured] = useState(false);
     const [mdValue, setMdValue] = React.useState("**Hello world!!!**");
-    const atypes = ["Award", "Event", "News", "Notice"];
+    const atypes = {
+        "Award":"디자인 어워드나 논문 수상 소식 (Home의 Featured와 Highlight영역에 표시)", 
+        "Event":"학과 행사나 이벤트 (Home의 Featured와 Highlight영역에 표시)", 
+        "News":"디자인/연구 결과 및 미디어 자료 (Home의 Featured와 Highlight영역에 표시)", 
+        "Notice":"공지사항. (Home의 두번째 페이지에 수록됨)", 
+        "Banner":"이미지 배너. (Home의 두번째 페이지 왼편에 큰 이미지로 보여짐; 세로가 긴 이미지가 적당)"
+    };
 
 
     useEffect(()=>{
@@ -42,8 +52,14 @@ function ArticleEditor() {
             FetchArticle(articleIDparam, (art)=>{
                 // Setting the article properties
                 setArticleTitle(art.title);
+                setArticleDatetime(art.datetime.toDate());
+                if(art.datetimeEnd) {
+                    setArticleDatetimeEnd(art.datetimeEnd.toDate());
+                }
                 setArticleType(art.type);
+                setArticleCoverImage(art.coverImage);
                 setMdValue(art.text);
+                setIsFeatured(art.featured);
             });
         } else {
             setArticleID(v4());
@@ -84,16 +100,19 @@ function ArticleEditor() {
         const callback = (msg)=>{
             feedbackHolder.innerHTML = msg;
         };
-        const instantFeedback = UploadArticle(articleID, 
-            {
+        let data = {
             "title":articleTitle,
             "type":articleType,
             "coverImage":articleCoverImage,
             "text":mdValue,
             "featured":isFeatured,
-            "datetime": Timestamp.now(),
-            "isDeleted": false
-        }, callback);
+            "datetime": Timestamp.fromDate(articleDatetime),
+            "isVisible": true
+        };
+        if (articleDatetimeEnd) {
+            data["datetimeEnd"] = Timestamp.fromDate(articleDatetimeEnd);
+        }
+        const instantFeedback = UploadArticle(articleID, data, callback);
         callback(instantFeedback);
     }
 
@@ -102,8 +121,31 @@ function ArticleEditor() {
             <div className="markdownUI">
                 <Link to="/articleListEditor">Back to Article List</Link> &nbsp;&nbsp;
                 <Link to={"/article/"+articleIDparam}>Back to Article</Link>
+
+                <label>Article Type</label>
+                <ul className="typeSelector">
+                    {_.map(atypes, (at,ati) => {
+                        return (
+                            <li key={ati}>
+                                <input type="radio" id={ati} name="articleType" 
+                                    onChange={()=>{setArticleType(ati);}}
+                                    checked={(ati==articleType)?true:false}></input>
+                                <span> <b>{ati}</b>: {at}
+                                </span>
+                            </li>
+                        )
+                    })}
+                </ul>
                 <label>Article Title</label>
                 <input type="text" id="articleTitle" onChange={(e)=>{setArticleTitle(e.target.value);}} value={articleTitle}/>
+                <div className="uiColumn">
+                    <label>Start Date</label>
+                    <DatePicker selected={articleDatetime} onChange={(date)=>{setArticleDatetime(date)}}/>
+                </div>
+                <div className="uiColumn">
+                    <label>(Optional) End Date</label>
+                    <DatePicker selected={articleDatetimeEnd} onChange={(date)=>{setArticleDatetimeEnd(date)}}/>
+                </div>
                 <label>Markdown Text</label>
                 <div className="container">
                     <MDEditor
@@ -115,29 +157,17 @@ function ArticleEditor() {
                 </div>
 
                 <label>Cover Image URI </label>
-                <input type="text" id="coverImage" onChange={(e)=>{setArticleCoverImage(e.target.value);}}/>
+                <input type="text" id="coverImage" onChange={(e)=>{setArticleCoverImage(e.target.value);}} value={articleCoverImage}/>
                 <div className="instruction">
-                    Cover images are used to represent the article in a list. 
-                    There's no size limit, but landscape images (i.e. width > height) will be the best.
-                    Please upload the image using the UI below and copy-paste its URI, or you can use any web URI. 
+                    커버 이미지는 각 아티클의 내용을 미리보기 하는 용도로 쓰임. 사이즈 제한은 없으나 가로로 긴 landscap (3:4 - 6:15)이 적당
+                    아래 Image File Upload기능을 사용해서 업로드하고, 업로드후 표시되는 URL을 입력창에 복붙할것.  
                 </div>
 
-                <label>Article Type</label>
-                <ul className="typeSelector">
-                    {atypes.map((at,ati) => {
-                        return (
-                            <li key={ati}>
-                                <input type="radio" id={at} name="articleType" 
-                                    onChange={()=>{setArticleType(at);}}
-                                    checked={(at==articleType)?true:false}></input>
-                                <span>{at}</span>
-                            </li>
-                        )
-                    })}
-                </ul>
                 
-                <label>Is Featured?</label> 
-                <input type="checkbox" onChange={()=>{setIsFeatured(!isFeatured);}}></input>
+                <label>Is Featured? (Featured는 Home의 첫 페이지에 표시; Notice나 Banner는 해당사항 없음)</label> 
+                <input type="checkbox" onChange={(event)=>{
+                    setIsFeatured(event.target.checked);
+                }} checked={isFeatured}></input>
 
 
                 <div className="saveButtonWrapper">
@@ -155,6 +185,10 @@ function ArticleEditor() {
                     }}
                 />
                 <button onClick={uploadImage}>Upload Image</button> 
+                <div className="instruction">
+                    이미지를 업로드하면 아래에 URL이 하나 표시되는데, 그것을 복사해서 본문이나 Cover Image URI창에 붙여넣으면 됩니다.
+                    <br/>본문에 넣을 때는 <code>![아무텍스트](이미지URL)</code>의 형식을 지켜야 함. 
+                </div>
                 <span> {progressPercent} </span>
                 <div className="uploadedImages">
                     {uploadedImages}

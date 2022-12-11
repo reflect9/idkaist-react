@@ -31,7 +31,7 @@ function Education({course}) {
     </div>);
   }
   return (
-    <div className="Education">
+    <div className="Education stretching">
       <div className="coverImage">
         <img src="/images/department/students_prototyping.png" />
       </div>

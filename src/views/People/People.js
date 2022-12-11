@@ -50,7 +50,7 @@ function People({filter}) {
   }).filter(e=>e);
   
   return (
-    <div className="People">
+    <div className="People stretching">
       <div className="tabNav">
           <ul>
             <li className={filter == "All" ? 'active' : null} > <Link to="/people/All">{t("People.role.All")}</Link> </li>

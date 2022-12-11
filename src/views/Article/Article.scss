@@ -2,7 +2,7 @@
     .PageContentWrapper {
         display: flex;
         flex-direction: row;
-        gap: 40px;
+        gap: 60px;
         position: relative;
         margin: 40px auto 0;
         // padding-bottom:220px;
@@ -17,7 +17,7 @@
             width: 140px;
 
             ul {
-                margin: 86px 0;
+                margin: 0;
                 padding: 0;
 
                 a {
@@ -25,7 +25,7 @@
 
                     li {
                         margin: 0 0 2px 0;
-                        background: #efefef;
+                        background: #eee;
                         list-style-type: none;
                         padding: 10px 16px;
                         font-family: 'Courier New', Courier, monospace;
@@ -39,7 +39,7 @@
                     vertical-align: middle;
 
                     li {
-                        background: white;
+                        background:#f9f9f9; 
                         padding: 10px 0;
                     }
 
@@ -60,7 +60,13 @@
         .articleContainer {
             flex: 1 0 auto;
             max-width: 920px;
-            
+            .coverImage {
+                img { 
+                    display:block;
+                    margin:0 auto 20px;
+                    width:70%;
+                }
+            }
             .datetime {
                 display:block;
                 font-size:14px; 
@@ -68,18 +74,27 @@
             }
             .title {
                 margin:4px 0;
-                font-size:32px;
-                font-weight:600; 
+                font-size:28px;
+                font-weight:700; 
                 line-height: 1.4em;
                 color:black;
             }
+            
+            
             .content {
+            img { 
+                width: 920px;  height: auto; 
+                min-height:50px; 
+                object-fit:cover;
+            }
+            p {
+                display:block;
                 font-size:16px;
-                line-height:1.5em;
-                margin-bottom:80px;
-                img {
-                    max-width:100%;
-                }
+                line-height:1.7em;
+                text-align: justify;
+            }
+            margin-bottom: 100px;
+             
             }
 
 

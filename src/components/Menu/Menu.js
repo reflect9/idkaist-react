@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 import { VscBook } from "react-icons/vsc";
 import { GrClose } from "react-icons/gr";
 import { BiSearch } from "react-icons/bi";
+import { AiFillCaretRight, AiFillCaretDown } from "react-icons/ai";
 import "./Menu.scss";
 
 import Labs from "@data/Labs";
 
 function Menu({ setIsMenuActive }) {
   const { t, i18n, ready } = useTranslation();
-  // const [language, setLanguage] = useState(i18n.language);
+  const [isResearchOpen, setIsResearchOpen] = useState(false);
   const changeLanguage = (m) => {
     i18n.changeLanguage(m);
     // setLanguage(m);
@@ -62,10 +63,14 @@ function Menu({ setIsMenuActive }) {
         </div>
         <div className="L1">
           <Link onClick={closeMenu} to="/research">{t("Menu.Research")}</Link>
+          {isResearchOpen?
+            <AiFillCaretDown onClick={()=>{setIsResearchOpen(false);}}/>:
+            <AiFillCaretRight onClick={()=>{setIsResearchOpen(true);}}/>
+          }
           <div className="L2">
-            {_.map(Labs, (labData,labID)=>{
+            {isResearchOpen && _.map(Labs, (labData,labID)=>{
               return (
-                <Link onClick={closeMenu} to={"/research/"+labID}>{labData.lab_long}</Link> 
+                <Link onClick={closeMenu} to={"/research/"+labID} key={labID}>{labData.lab_long}</Link> 
               );
             })}
           </div>

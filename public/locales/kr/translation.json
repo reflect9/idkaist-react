@@ -95,8 +95,9 @@
       "Award": "수상",
       "Event": "행사",
       "News": "뉴스",
-      "Notice": "공지"
+      "Notice": "공지",
+      "Banner": "배너"
     },
-    "NoArticleMsg": "해당 타입의 아티클이 아직 없습니다"
+    "NoArticleMsg": "로딩중... 혹은 해당 타입의 아티클이 아직 없습니다"
   }
 }
