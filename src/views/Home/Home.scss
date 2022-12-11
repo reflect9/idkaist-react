@@ -394,7 +394,7 @@
                 width: 100%;
                 max-width: 950px;
                 // flex:1 0 100%;
-                height: calc(100vh);
+                // height: calc(100vh);
                 color: white;
                 box-sizing: border-box;
                 // padding: 60px;
@@ -405,9 +405,10 @@
                 // max-width: 950px;
 
                 img {
-                    // width: 100%;
-                    height: 100%;
+                    width: 100%;
+                    // height: 100%;
                     object-fit: cover;
+                    vertical-align: bottom;
                 }
             }
 
@@ -433,7 +434,6 @@
                 display: inline-block;
                 width: 100%;
                 max-width: 950px;
-
                 .events {
                     background: black;
                     color: white;
@@ -492,22 +492,15 @@
         }
 
         .Grid {
-            .sectionTitle {
-                font-size: 32px;
-                color: #000;
-                margin: 40px;
-                font-weight: 600;
-            }
-
             ul {
-                margin: 60px;
+                margin: 80px;
                 padding: 0;
                 list-style-type: none;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
                 align-content: flex-start;
-                gap: 60px;
+                gap: 80px;
             }
 
             // @media (max-width: 1080px) {
@@ -527,8 +520,8 @@
                 padding: 0;
                 list-style-type: none;
                 overflow: hidden;
-                flex: 1 0 520px !important;
-                width: 520px;
+                flex: 1 0 400px !important;
+                width: 400px;
 
                 .thumbnailImage {
                     position: relative;
@@ -554,7 +547,7 @@
                     }
 
                     .title {
-                        font-size: 24px;
+                        font-size: 21px;
                         color: #000;
                         font-weight: 700;
                     }
