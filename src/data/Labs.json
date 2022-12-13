@@ -150,13 +150,18 @@
         "name_en": "Sang-Soo Lee",
         "position": "Assistant Professor",
         "role": "Faculty",
-        "description_en": "Prof. Lee likes to look for the next generation of user interface designs that provide a better user experience. He is interested in conducting industry-related UX projects based on his experience in designing the Galaxy lines at Samsung. He is currently interested in natural user interfaces, including the AI assistant.",
+        "description_en": "We, Next Interface Lab, study more natural and human-centered future interfaces for everyone. We focus on practical design research in the field of user interface design that bridges the gap between academic research and practice. Next Interface Lab is a part of NH Investment & Security - KAIST UX Design Research Center.",
         "lab": "",
         "lab_long": "Next interface Lab",
-        "lab_keywords": ["HCI", "UX", "Experience Design"],
+        "lab_keywords": ["UI", "UX", "User-centered Design","HCI"],
         "lab_url": "https://www.nextinterfacelab.org/",
         "lab_thumbnail":"b400f9b4ae98bde20ec03c780854280a.jpeg",
         "lab_logo":"next.png",
+        "lab_works":[
+            { "type":"image", "source": "/images/labs/sangsoolee/NAVER Voice UX Design.png"},
+            { "type":"image", "source": "/images/labs/sangsoolee/NH Namuh Watch App Design.png"},
+            { "type":"image", "source":  "/images/labs/sangsoolee/Users mental model on AI agent IMWUT-Ubicomp2020.png"}
+        ],
         "email": "sangsu.lee@kaist.ac.kr",
         "phone": "+82-42-350-4527",
         "office": "N25 #405",
@@ -168,13 +173,21 @@
         "name_en": "Tak-Yeon Lee",
         "position": "Assistant Professor",
         "role": "Faculty",
-        "description_en": "Prof. Lee likes to design a wide range of innovative products by combining AI and design based on his experience at Adobe Research. His research often focuses on creating a symbiotic environment where human and AI collaboratively solve challenging problems.",
+        "description_en": "We create innovation solutions for real-world problems by integrating the power of design, data, and cutting-edge technology. Our research focuses on (but not limited to) creating a symbiotic environment where human, VR/AR/XR technology, and AI collaboratively solve challenging problems.",
         "lab": "AEL",
         "lab_long": "AI Experience Lab",
         "lab_keywords": ["HCI", "UX", "Experience Design"],
         "lab_url": "https://reflect9.github.io/ael/",
         "lab_thumbnail":"ael.png",
         "lab_logo":"ael.png",
+        "lab_works":[
+            { "type":"YouTube", "source":"https://www.youtube.com/embed/EOy8W6r-2wU" },
+            { "type":"YouTube", "source":"https://www.youtube.com/embed/aFS30Df_hMg" },
+            { "type":"image", "source":"/images/labs/takyeonlee/skully-sub-hero.jpg" },
+            { "type":"image", "source":"/images/labs/takyeonlee/korail.png" }
+
+            
+        ],
         "email": "takyeonlee@kaist.ac.kr",
         "phone": "+82-42-350-4528",
         "office": "N25 #309",
@@ -211,11 +224,44 @@
         "lab_url": "http://asc.kaist.ac.kr/",
         "lab_thumbnail":"asc.jpeg",
         "lab_logo":"asc.png",
-        "lab_works": ["/images/labs/changheelee/Weight and Scale.jpg","/images/labs/changheelee/Silent Scene 1.jpg","/images/labs/changheelee/Refined2.jpg","/images/labs/changheelee/kaist-chang-hee-lee-design22.jpg","/images/labs/changheelee/IMG_899022.jpg","/images/labs/changheelee/chang-hee-lee-DIS2.jpg","/images/labs/changheelee/chang-hee-lee-design-RTD2017-04.jpg","/images/labs/changheelee/bubble.jpg"],
+        "lab_works":[
+            { "type":"image", "source":"/images/labs/changheelee/Weight and Scale.jpg" },
+            { "type":"image", "source":"/images/labs/changheelee/Silent Scene 1.jpg" },
+            { "type":"image", "source":"/images/labs/changheelee/Refined2.jpg" },
+            { "type":"image", "source":"/images/labs/changheelee/kaist-chang-hee-lee-design22.jpg" },
+            { "type":"image", "source":"/images/labs/changheelee/chang-hee-lee-DIS2.jpg" },
+            { "type":"image", "source":"/images/labs/changheelee/chang-hee-lee-design-RTD2017-04.jpg" },
+            { "type":"image", "source":"/images/labs/changheelee/bubble.jpg" }  
+        ],
         "email": "changhee.lee@kaist.ac.kr",
         "phone": "+82-42-350-4501",
         "office": "N25 TBD",
         "thumbnail": "chl.png",
         "img_large": "chl-large.png"
+    },
+    "yiyunkang": {
+        "name_kr": "강이연",
+        "name_en": "Yiyun Kang",
+        "position": "Assistant Professor",
+        "role": "Faculty",
+        "description_en": "Experience Design (ED) Lab conducts research and practice located at the intersection of art and technology. The lab explores multi-sensorial, tech-aided environments in extended realities to investigate immersive storytelling. Through experience design research, we aim to develop innovative content that promotes informative and affective communication.",
+        "description_kr":"경험 디자인(ED) 연구소는 예술과 기술의 교차점에 위치합니다. 본 연구소는 확장되는 다차원에서 생성되는 복합 감각적 경험과, 그로 인해 가능해지는 몰입형 스토리텔링 탐구를 목표로 하며, 이를 위한 기술 환경을 연구합니다. 이를 통해 정보전달, 비판적 인지와 사고, 감성적 반향이 융합적으로 이루어지는 혁신적인 콘텐츠 디자인 및 개발을 추구합니다.",
+        "lab": "ED",
+        "lab_long": "Experience Design Lab ",
+        "lab_keywords": ["Creativity", "Sense", "Wellbeing"],
+        "lab_url": "www.yiyunkang.com",
+        "lab_thumbnail":"asc.jpeg",
+        "lab_logo":"asc.png",
+        "lab_works":[
+            { "type":"image", "source":"/images/labs/yiyunkang/FINITE, 5 channel projection mapping, spatialised audio, 2021.JPG" },
+            { "type":"image", "source": "/images/labs/yiyunkang/INFINITE, kinetic projection mapping, data visualisation, immersive sound, 2022.JPG"},
+            { "type":"image", "source": "/images/labs/yiyunkang/VANISHING, public installation, large-scale LED facade, 2022.jpg"}
+        ],
+        "email": "yiyunkang@kaist.ac.kr",
+        "phone": "+82-42-350-4515",
+        "office": "N25 #420",
+        "thumbnail": "kangyiyun.jpg",
+        "img_large": "kangyiyun-large.jpg"
     }
+    
 }

@@ -34,16 +34,7 @@
             list-style-type: none;
             margin: 0 auto;
             padding: 0;
-            li {
-                flex:0 0 auto;
-                padding: 12px 4px;
-                font-family: 'Courier New', Courier, monospace;
-                font-size:14px;
-                text-transform: uppercase;
-                border-top:3px solid transparent;
-                color:#000;
-                cursor:pointer;
-                a,
+            a,
                 button {
                     border: none;
                     background: none;
@@ -53,6 +44,16 @@
                     text-decoration: none;
                     // text-transform: uppercase;
                 }
+            li {
+                flex:0 0 auto;
+                padding: 12px 4px;
+                font-family: 'Courier New', Courier, monospace;
+                font-size:14px;
+                text-transform: uppercase;
+                border-top:3px solid transparent;
+                color:#000;
+                cursor:pointer;
+                
             }
             li:hover {
                 border-top:3px solid #F40019;

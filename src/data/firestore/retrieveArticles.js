@@ -11,7 +11,7 @@ function RetrieveArticles(allowedArticleTypes, isFeatured, doclimit, callback) {
     (async () => {
         const articlesRef = collection(db, "articles");
         let querySnapshot;
-        if(isFeatured) {
+        if(isFeatured != null) {
             querySnapshot = await getDocs(query(articlesRef, where("type", "in", allowedArticleTypes)
             , where("featured", "==", isFeatured), orderBy('datetime', 'desc'), limit(doclimit)));    
             callback(querySnapshot.docs);    

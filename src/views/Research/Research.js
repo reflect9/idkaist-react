@@ -17,7 +17,7 @@ function Research({labID}) {
   if (typeof labID === "undefined" || labID == "undefined") {
     pageContent = (
       <div className="PageContentWrapper">
-        <h2>Research @ IDKAIST</h2>
+        <h2>{t("Research.title")}</h2>
         {t("Research.overview")}
       </div>
     );

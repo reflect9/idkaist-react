@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
-import "./Labs.scss";
+import "./Lab.scss";
 import Labs from "@data/Labs";
-
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 function Lab({ labID }) {
     const { t, i18n, ready } = useTranslation();
     const [imageNum, setImageNum] = useState();
@@ -13,18 +14,25 @@ function Lab({ labID }) {
     }
     let projectImages, projectImagesEl;
     if (LabData.lab_works) {
-        projectImages = LabData.lab_works;
+        projectImagesEl = LabData.lab_works.map((pi,pii)=>{
+            let tag;
+            if (pi.type=="image") {
+                tag  = (<img className="projectImage" key={pii} onClick={()=>{setImageNum(pii);}} src={pi.source}/>);
+            } else if(pi.type="YouTube") {
+                tag = (<iframe width="1080" className="projectImage" key={pii} src={pi.source+"?vq=hd1080"} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>);
+            }
+            return tag;
+        });
     } else {
-        projectImages = [
-            "https://source.unsplash.com/random/600x600?sig=" + getRandomNumber(),
-            "https://source.unsplash.com/random/600x600?sig=" + getRandomNumber(),
-            "https://source.unsplash.com/random/600x600?sig=" + getRandomNumber()
+        projectImagesEl = [
+            (<img className="projectImage" key={0} onClick={()=>{setImageNum(0);}} src={"https://source.unsplash.com/random/600x600?sig=" + getRandomNumber()}/>),
+            (<img className="projectImage" key={1} onClick={()=>{setImageNum(1);}} src={"https://source.unsplash.com/random/600x600?sig=" + getRandomNumber()}/>),
+            (<img className="projectImage" key={2} onClick={()=>{setImageNum(2);}} src={"https://source.unsplash.com/random/600x600?sig=" + getRandomNumber()}/>),
         ];
     }
-    
-    projectImagesEl = projectImages.map((pi,pii)=>{
-        return (<img className="projectImage" key={pii} onClick={()=>{setImageNum(pii);}} src={pi}/>);
-    });
+    // projectImagesEl.push(
+    //     <div className="hidden-flex-item"></div>
+    // )
     
     let labKeywords;
     if (typeof LabData.lab_keywords !== "undefined") {
@@ -44,18 +52,21 @@ function Lab({ labID }) {
             </div>
 
             <div className="rightPanel">
-                <h4>Principal Investigator</h4>
+                <h4>{t("Research.principal_investigator")}</h4>
                 <div className="LabPI">
-                    {i18n.language == "kr" ? "지도교수: " + LabData.name_kr : LabData.name_en}
+                    {i18n.language == "kr" ? LabData.name_kr : LabData.name_en}
                 </div>
-                <h4>Research Areas</h4>
+                <div className="email">
+                    {LabData.email}
+                </div>
+                <h4>{t("Research.research_areas")}</h4>
                 <div className="LabKeywords">
                     <ul>
                         {labKeywords}
                     </ul>
                 </div>
 
-                <h4>HOMEPAGE</h4>
+                <h4>{t("Research.homepage")}</h4>
                 <div className="LabLink">
                     <a href={LabData.lab_url} target="IDKAIST_LAB">{LabData.lab_url}</a>&nbsp;&nbsp;
                 </div>
@@ -66,8 +77,26 @@ function Lab({ labID }) {
             {projectImagesEl}
         </div>
         {(typeof imageNum !=="undefined") && (imageNum!=null) ? (
-            <div className="imagePopup">
-                {<img src={projectImages[imageNum]} onClick={()=>{setImageNum(null);}}/>}
+            <div className="imagePopup unselectable">
+                <div className="leftArrow changeImageButton" onClick={()=>{
+                    let newImageNum = imageNum-1; 
+                    if (newImageNum<0) newImageNum = projectImagesEl.length-1;
+                    setImageNum(newImageNum);
+                    return false;
+                }}><MdArrowBackIos/></div>
+                <div className="rightArrow changeImageButton" onClick={()=>{
+                    let newImageNum = imageNum+1; 
+                    if (newImageNum==projectImagesEl.length) newImageNum = 0;
+                    setImageNum(newImageNum);
+                    return false;
+                }}><MdArrowForwardIos /></div>
+                <div className="closeButton" onClick={()=>{setImageNum(null);}}>
+                    <AiOutlineCloseCircle/>
+                </div>
+                <div className="largeImageContainer"  onClick={()=>{setImageNum(null);}}>
+                    {projectImagesEl[imageNum]}
+                </div>
+                {/* {<img src={projectImages[imageNum]} onClick={()=>{setImageNum(null);}}/>} */}
             </div>
         ):<div/>}
         

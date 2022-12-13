@@ -17,7 +17,8 @@ const ArticleListEditor = () => {
     const [articles, setArticles] = useState([]);
     const atypes = ["All", "Award", "Event", "News", "Notice", "Banner"];
     useEffect(() => {
-        RetrieveArticles(articleType, null, 500, setArticles);
+        let allowedArticleTypes = (articleType=="All" || typeof articleType==="undefined")?["Award","Event","News","Notice","Banner"]:[articleType]; 
+        RetrieveArticles(allowedArticleTypes, null, 500, setArticles);
     },[articleType]);
 
     const setVisibility = (articleID, newValue)=>{
@@ -26,12 +27,15 @@ const ArticleListEditor = () => {
             {
                 "isVisible": newValue
             },
-            ()=>{RetrieveArticles(articleType, null, 500, setArticles)}
+            ()=>{
+                let allowedArticleTypes = (articleType=="All" || typeof articleType==="undefined")?["Award","Event","News","Notice","Banner"]:[articleType]; 
+                RetrieveArticles(allowedArticleTypes, null, 500, setArticles)
+            }
         );
     }
     const typeLinks = atypes.map( (at) => {
         return (<Link className={articleType == at ? "active" : ""} key={at}
-            to={(at=="All")?'/articleListEditor':'/articleListEditor/'+at}>
+            to={'/articleListEditor/'+at}>
             <li key={at}>{t("ArticleList.Type."+at)}</li></Link>);
     });                 
     return (

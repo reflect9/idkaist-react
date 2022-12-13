@@ -44,7 +44,7 @@ function About() {
         <div className="leftHalf">
           <div className="contentArea">
             <div className="title">
-              <h2>About the department</h2>
+              <h2>{t("About.title")}</h2>
             </div>
             <div className="mission">
               {t("About.Mission")}

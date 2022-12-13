@@ -50,19 +50,19 @@ function Menu({ setIsMenuActive }) {
       </div>
       <div className="MenuItems">
         <div className="L1">
-          <Link onClick={closeMenu} to="/home">{t("Menu.Home")}</Link>
+          <Link to="/home">{t("Menu.Home")}</Link>
         </div>
         <div className="L1">
-          <Link onClick={closeMenu} to="/education">{t("Menu.Education")}</Link>
+          <Link to="/education">{t("Menu.Education")}</Link>
           <div className="L2">
-            <Link onClick={closeMenu} to="/education/Undergraduate">{t("Menu.Undergraduate")}</Link>
-            <Link onClick={closeMenu} to="/education/Master">{t("Menu.Master")}</Link>
-            <Link onClick={closeMenu} to="/education/PhD">{t("Menu.PhD")}</Link>
-            <Link onClick={closeMenu} to="/education/International">{t("Menu.International")}</Link>
+            <Link to="/education/Undergraduate">{t("Menu.Undergraduate")}</Link>
+            <Link to="/education/Master">{t("Menu.Master")}</Link>
+            <Link to="/education/PhD">{t("Menu.PhD")}</Link>
+            <Link to="/education/International">{t("Menu.International")}</Link>
           </div>
         </div>
         <div className="L1">
-          <Link onClick={closeMenu} to="/research">{t("Menu.Research")}</Link>
+          <Link to="/research">{t("Menu.Research")}</Link>
           {isResearchOpen?
             <AiFillCaretDown onClick={()=>{setIsResearchOpen(false);}}/>:
             <AiFillCaretRight onClick={()=>{setIsResearchOpen(true);}}/>
@@ -70,23 +70,23 @@ function Menu({ setIsMenuActive }) {
           <div className="L2">
             {isResearchOpen && _.map(Labs, (labData,labID)=>{
               return (
-                <Link onClick={closeMenu} to={"/research/"+labID} key={labID}>{labData.lab_long}</Link> 
+                <Link to={"/research/"+labID} key={labID}>{labData.lab_long}</Link> 
               );
             })}
           </div>
         </div>
         <div className="L1">
-          <Link onClick={closeMenu} to="/people">{t("Menu.People")}</Link>
+          <Link to="/people">{t("Menu.People")}</Link>
           <div className="L2">
-            <Link onClick={closeMenu} to="/people/All">{t("People.role.All")}</Link>
-            <Link onClick={closeMenu} to="/people/Faculty">{t("People.role.Faculty")}</Link>
-            <Link onClick={closeMenu} to="/people/OldFaculty">{t("People.role.OldFaculty")}</Link>
-            <Link onClick={closeMenu} to="/people/Staff">{t("People.role.Staff")}</Link>
-            <Link onClick={closeMenu} to="/people/OtherFaculty">{t("People.role.OtherFaculty")}</Link>
+            <Link to="/people/All">{t("People.role.All")}</Link>
+            <Link to="/people/Faculty">{t("People.role.Faculty")}</Link>
+            <Link to="/people/OldFaculty">{t("People.role.OldFaculty")}</Link>
+            <Link to="/people/Staff">{t("People.role.Staff")}</Link>
+            <Link to="/people/OtherFaculty">{t("People.role.OtherFaculty")}</Link>
           </div>
         </div>
         <div className="L1">
-          <Link onClick={closeMenu} to="/about">{t("Menu.About")}</Link>
+          <Link to="/about">{t("Menu.About")}</Link>
           <div className="L2">
           </div>
         </div>

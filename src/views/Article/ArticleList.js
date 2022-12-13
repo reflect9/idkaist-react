@@ -20,13 +20,13 @@ const ArticleList = () => {
     // Fetching articles only once (when the component got loaded)
     useEffect(() => {
         let allowedArticleTypes = (articleType=="All")?["Award","Event","News","Notice","Banner"]:[articleType]; 
-        RetrieveArticles(allowedArticleTypes, [true, false], 500, setArticles);
+        RetrieveArticles(allowedArticleTypes, null, 500, setArticles);
         console.log(articles);
     },[articleType]);
 
     const typeLinks = atypes.map( (at) => {
         return (<Link className={articleType == at ? "active" : ""} 
-            to={(at=="All")?'/articleList':'/articleList/'+at}>
+            to={'/articleList/'+at}>
             <li >{t("ArticleList.Type."+at)}</li></Link>);
     });                 
     return (
