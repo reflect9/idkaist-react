@@ -210,7 +210,7 @@
             ul.historyTable {
                 margin:20px 0;padding:0;
                 li {
-                    border-top:1px solid #ddd;
+                    border-bottom:1px solid #ddd;
                     list-style-type: none;
                     padding:16px; margin:0;
                     span.year {
@@ -332,13 +332,16 @@
                 ul.historyTable {
                     margin:20px 0;padding:0;
                     li {
-                        border-top:1px solid #ddd;
+                        border-bottom:1px solid #ddd;
                         list-style-type: none;
                         padding:16px; margin:0;
                         span.year {
                             font-family: 'Courier New', Courier, monospace;
                             font-weight:300; margin-right:10px;
                         }
+                    }
+                    li:last-of-type{
+                        border-bottom:none;
                     }
                 }
                 ul.smallTable {

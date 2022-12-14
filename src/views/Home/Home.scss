@@ -234,12 +234,26 @@
                             padding: 40px;
                             max-width: 950px;
                             box-sizing: border-box;
-
-                            .item_kind {
-                                // color:#aaa;
-                                font-family: 'Courier New', Courier, monospace;
-                                font-size: 14px;
+                            .kind_datetime {
+                                .item_kind {
+                                    // color:#aaa;
+                                    font-family: 'Courier New', Courier, monospace;
+                                    font-size: 14px;
+                                    text-transform: uppercase;
+                                    a:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+                                .item_datetime {
+                                    display:inline-block;
+                                    border-left:1px solid #aaa; 
+                                    margin-left:12px;
+                                    padding-left:12px;
+                                    font-family: 'Courier New', Courier, monospace;
+                                    font-size: 12px;
+                                }
                             }
+                             
 
                             .item_title {
                                 margin-top: 4px;
@@ -263,11 +277,7 @@
                                 line-clamp: 5;
                                 -webkit-box-orient: vertical;
                             }
-                            .item_datetime {
-                                margin-top:8px;
-                                font-family: 'Courier New', Courier, monospace;
-                                font-size: 12px;
-                            }
+                            
                             a {
                                 text-decoration: none;
                                 color:inherit;
@@ -321,6 +331,7 @@
                                         padding-right:12px;
                                         margin-right:12px;
                                         border-right:1px solid #ccc;
+                                        text-transform: uppercase;
                                     }
     
                                     .item_datetime {
@@ -399,20 +410,14 @@
             .contentArea {
                 display: inline-block;
                 position: relative;
-                text-align: right;
+                text-align: center;
                 width: 100%;
                 max-width: 950px;
                 // flex:1 0 100%;
                 // height: calc(100vh);
                 color: white;
                 box-sizing: border-box;
-                // padding: 60px;
-
-
-                // display: inline-block;
-                // width: 100%;
-                // max-width: 950px;
-
+                padding: 60px 20%;
                 img {
                     width: 100%;
                     // height: 100%;
@@ -557,6 +562,14 @@
                         // color:#aaa;
                         font-family: 'Courier New', Courier, monospace;
                         font-size: 14px;
+                        text-transform: uppercase;
+                        a {
+                            color:inherit;
+                            text-decoration: none;
+                        }
+                        a:hover {
+                            text-decoration: underline;
+                        }
                     }
 
                     .title {

@@ -138,13 +138,13 @@ function About() {
               <li><span className="year">1991</span> Post-graduate Program Launched</li>
               <li><span className="year">2002</span> Doctoral Program Launched</li>
               <li><span className="year">2006</span> Leaping toward globalization
-                <ul className="smallTable">
+                {/* <ul className="smallTable">
                   <li>Participation in BK21 program</li>
                   <li>Participation in the WCU (World Class University) program</li>
                   <li>Selected as one of BusinessWeek's 60 best design programs</li>
                   <li>Organizing 'Catch the Future' workshop</li>
                   <li>Selected as one of BusinessWeek's 30 best design programs</li>
-                </ul>
+                </ul> */}
               </li>
             </ul>
           </div>

@@ -94,7 +94,7 @@ let Home = ({ }) => {
 				</div>
 				<div className="info">
 					<div className="kind">
-						{article.type}
+						<Link to={"/articleList/"+article.type}>{article.type}</Link>
 					</div>
 					<div className="title">
 						<Link to={"/article/"+article.id}>
@@ -134,11 +134,17 @@ let Home = ({ }) => {
 						</Link>
 					</div>
 					<div className="item_details">
-						<div className="item_kind">
-							<Link to={"/articleList/" + mainFeature.type}>
-								{mainFeature.type}
-							</Link>
+						<div className="kind_datetime">
+							<div className="item_kind">
+								<Link to={"/articleList/" + mainFeature.type}>
+									{mainFeature.type}
+								</Link>
+								<div className="item_datetime">
+									{formatDate(mainFeature.datetime)}
+								</div>
+							</div>
 						</div>
+						
 						<div className="item_title">
 							<Link to={"/article/" + mainFeature.id}>
 								{mainFeature.title}
@@ -147,9 +153,7 @@ let Home = ({ }) => {
 						<div className="item_desc">
 							{mainFeature.text}
 						</div>
-						<div className="item_datetime">
-							{formatDate(mainFeature.datetime)}
-						</div>
+						
 						<a className="read_more" href={"/article/" + mainFeature.id}>{t("General.read_more")}</a>
 					</div>
 				</div>
